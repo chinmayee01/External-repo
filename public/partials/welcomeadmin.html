@@ -1,0 +1,229 @@
+<!-- welcome admin.html as of 8th june 2015 -->
+<div id="viewcontent">
+<!--  Container    -->
+<link href="partials/eCustomCss/WelcomeAdminCustom.css" rel="stylesheet" media="screen">
+
+<!-- Timeout script in jquery allowing angular to load starts here -->
+<script>
+setTimeout(function(){
+ $(document).ready(function () {
+   $(".loading").css("display", "none");
+   
+ });
+},3500);
+</script>
+<!-- Timeout script in jquery allowing angular to load ends here -->
+
+<div class="col-sm-12">
+ <div class="Container-Div-class">
+  <div class="header-Strip">
+   <div class="left"><h3 class="Heading-Class-h3">We are here now</h3></div>
+   
+   <!-- Displaying as of date in keys Success left -->
+   
+   <div class="right"><h5 class="Heading-Class-h5"> {{tabtdata[0].welcomePageSchema.Keys_Success_Left.as_of_date}}</h5></div>
+  </div>
+ 
+  <div class="Table-container">
+  
+
+  <div><h5>Show/Hide this section</h5></div>
+  
+                            <label>                    
+                            <!-- Drop down list to ensure if this section has to be shown or not  -->
+                             <select ng-model="phaseflag">
+                              <option value="">Select a phase</option>
+                               <option value="true">Show</option>
+  							   <option value="false">Hide</option>
+  							 </select>
+							</label>
+							
+	<!-- We Are Here Now table -->
+			
+    <table width="100%">
+            <!-- Outer loop to repeat through phases -->
+            
+			 <tr ng-repeat = "myphasedata in compData[0].welcomePageSchema.We_Are_Here.Phases">
+			 
+			  <!-- Outer loop to starts here -->
+			  
+			  <td class="TD-RIGHT">
+				<table class="table RightSideTable" style="min-height:296px; max-height:296px;">
+                    <thead>
+                          <tr>
+                         <th><h4>{{myphasedata.Stage}}</h4></th>
+                         <tr>
+                        <tr class="RightSideSecondTableHeader">
+                            <th style="width:auto;">ORDER</th>
+                            <th style="width:auto;">LABEL(15 CHARACTER MAX)</th>
+                            <th style="width:auto;">CURRENT STATE</th>
+                            <th style="width:auto;">POSITION</th>
+                        </tr>
+                    </thead>
+                    
+                    <!-- Inner loop to drill down in phase details -->
+                    <!-- Inner loop satrts here -->
+                    <tbody style="text-align:left" ng-repeat="ph in myphasedata.Phase_detail">
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td class="heading-colorblue"><span ng-repeat="mylabel in ph.Description">{{mylabel}}<br></span></td>
+                            <td class="radio-Button-Group">
+                             <div class="div-tab">
+                              <div class="sub-tab"><input name="{{sprint[index]}}" type="radio" value="circle notdone" ng-model="ph.rad" checked></div>
+                              <div class="sub-tab">NOT<BR>STARTED</div>
+                             </div>
+                             <div class="div-tab">
+                              <div class="sub-tab"><input name="{{sprint[index]}}" type="radio" value="circle partial" ng-model="ph.rad"></div>
+                              <div class="sub-tab">50%<BR>COMPLETE</div>
+                             </div>
+                             <div class="div-tab">
+                              <div class="sub-tab"><input name="{{sprint[index]}}" type="radio" value="circle done" ng-model="ph.rad"></div>
+                              <div class="sub-tab">100%<BR>COMPLETE</div>
+                             </div>
+                             <div class="div-tab">
+                              <div class="sub-tab"><input name="{{sprint[index]}}" type="radio" value="circle active" ng-model="ph.rad"></div>
+                              <div class="sub-tab">PHASE<BR>ACTIVE</div>
+                             </div>
+                            </td>
+                            <td><input name="{{position[$parent.$index]}}" type="radio" ng-model="ph.positionRadio" value="marker" ng-click="fun($parent.$index,$index)"></td>                    
+                        </tr>
+                      </tbody>
+                      <!-- Inner loop ends here -->
+                      <tr><td colspan="4">Clear position for this phase<input type="button" value="Clear all" ng-click="clearpos($index)"></td></tr>
+                    </table>
+			   </td>
+			 </tr>
+			 <!-- Outer loop ends here -->
+			 </table>
+			 
+  </div>
+ </div>
+</div>
+
+<div class="col-sm-12">
+ <div class="Container-Div-class">
+  <div class="header-Strip">
+   <div class="left"><h3 class="Heading-Class-h3">Key dates to watch out for</h3></div>
+  </div>
+  
+   <!-- Flag section for show/hide Key dates to watch out for section -->
+   
+   <div><h5>Show/Hide this section</h5></div>
+                  <label>
+                         <select ng-model="keyflag">
+                             <option value="">Select a phase</option>
+                              <option value="true">Show</option>
+  							  <option value="false">Hide</option>
+  				    	 </select>
+				  </label>
+							<br>
+  <div class="Table-container2">
+    <table width="100%">
+			 <tr>
+			 <td class="TD-LEFT">
+				<table class="table LeftSideTable">
+                    <thead>
+                        <tr>
+                            <th style="width:30%;">MILESTONES</th>
+                            <th style="width:20%;">TARGET DATE</th>
+                            <th style="width:10%;">STATUS</th>
+                            <th style="width:40%;">COMMENTS</th>
+                        </tr>
+                    </thead>
+                    
+                    <!-- Outer loop to loop through phases in key dates to watch out for section -->
+                    <!-- Outer loop starts here -->
+                    
+                    <tbody style="text-align:left" ng-repeat="wahndata in compData[0].welcomePageSchema.Key_Dates_Watch[0].Phases[0].Phase">
+                        <tr>
+                            <td colspan="4">PHASE {{$index+1}}</td>
+                        </tr>
+                        
+                        <!-- Inner loop to lop through Content data in a particular phase -->
+                        <!-- Inner loop starts here -->
+                        
+                        <tr ng-repeat="wahndetails in wahndata.Content_Data">
+                            <td><input type="text" ng-model="wahndetails.eventData"></td>
+                            <td> <input name="wahndetails.calName" class="datepicker"  ng-model="wahndetails.myDate"  ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i> </td>
+                            <td>
+                            <label>
+                             <select ng-model="wahndetails.stageChoice">
+                              <option value="red-tickmark-stable">Red State</option>
+  							  <option value="red-tickmark-down">Red moving down to amber</option>
+  							  <option value="yellow-tickmark-up">Amber moving up to red</option>
+  							  <option value="yellow-tickmark-stable">Amber state</option>
+  							  <option value="yellow-tickmark-down">Amber moving down to green</option>
+  							  <option value="green-tickmark-up">Green moving up to amber</option>
+                              <option value="green-tickmark-stable">Green state</option>
+                              <option value="green-tickmark">Complete</option> 							  
+  							 </select>
+							</label>
+                            </td>
+                            <td><input type="text" ng-model="wahndetails.comment"></td>
+                        </tr>    
+                        
+                        <!-- Inner loop ends here -->      
+                             
+                  </tbody>
+                  
+                  <!-- Outer loop ends here  -->
+                  
+                  </table>
+			  </td>
+			 <td class="TD-RIGHT">
+				<table class="table RightSideTable">
+                    <thead>
+                        <tr>
+                            <th style="width:auto;">LEGEND OF THE STATUS DROPDOWN</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:left">
+                    <tr>
+                            <td><img src="images/ibm-redstate.png"> Red state</td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="images/ibm-red-down-state.png"> Red moving down to amber</td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/ibm-amber-up-state.png"> Amber moving up to red</td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/ibm-amber-stable-state.png"> Amber state</td>
+                        </tr>
+
+                        <tr>
+                            <td><img src="images/ibm-amber-down-state.png"> Amber moving down to green</td>
+                        </tr>
+                        
+
+                        <tr>
+                            <td><img src="images/ibm-green-up-state.png"> Green moving up to amber</td>
+                        </tr>
+                        
+                        <tr>
+                            <td><img src="images/ibm-green-stable-state.png"> Green state</td>
+                        </tr>
+						
+						<tr>
+                            <td><img src="images/ibm-tickmark.png"> Complete</td>
+                        </tr>
+                        
+
+                        
+                      </tbody>
+                    </table>
+			  </td>
+			 
+			 </td>
+			 </tr>
+			 </table>
+			 
+			 <!-- Submit button for updating the results -->
+			 
+			 <input type="button" value="Submit" class="btn" ng-click="wahnsubmit()">
+  </div>
+ </div>
+</div>
+</div>
+

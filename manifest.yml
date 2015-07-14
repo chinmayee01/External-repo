@@ -1,0 +1,11 @@
+applications:
+- services:
+  - MongoLab-55
+  disk_quota: 1024M
+  host: externalsite-package
+  name: externalsite-package
+  command: node app.js
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 256M

@@ -1,0 +1,156 @@
+@font-face {
+    font-family: HelveticaNeue-Light;
+    src: local(HelveticaNeue-Light), url('../Fonts/HelveticaNeue-Light.otf') format('opentype');
+}
+
+ body {
+    font-family: HelveticaNeue-Light, HelveticaNeue-Regular,' Helvetica','Helvetica Neue Regular', 'Helvetica Neue', HelvRegularIBM !important;
+	color:#333333;
+}
+h1, h2, h3, h4, h5, h6{padding: 0; margin: 0}
+ .Container-Class
+ {
+  border-bottom:1px solid #d5d5d5;
+ }
+ .Container-Div-class
+ {
+  clear:both;
+  margin:auto;
+  width:980px;
+ }
+ .Heading-Class-h3
+ {margin:20px 0 20px 0}
+ .Heading-Class-h5
+ {margin:30px 0 20px 0}
+ 
+ .Heading-Class-about
+ {margin:20px 0 20px 0}
+ 
+ .Container-Div-class .left-div
+ {
+  width:50%;
+  height:345px;
+  float:left;
+  padding:0 9px;
+  background-image:url(../../images/cbs-dashboard-bg-template.png);
+  background-repeat:no-repeat;
+   background-position: center;
+ }
+ .Container-Div-class .right-div
+ {
+  width:50%;
+  height:345px;
+  float:right;
+  padding:0 9px;
+  background-image:url(../../images/cbs-dashboard-bg-template.png);
+  background-repeat:no-repeat;
+  background-position: center;
+ }
+ 
+ .phase-td
+{
+	text-align:center;
+	background-color: #a8dbe9;
+}
+ .green-tickmark
+{
+	background-image:url('../../images/ibm-tickmark.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+.green-tickmark-up
+{
+	background-image:url('../../images/ibm-green-up-state.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+.green-tickmark-down
+{
+	background-image:url('../../images/ibm-green-down-state.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+.green-tickmark-stable
+{
+	background-image:url('../../images/ibm-green-stable-state.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+.yellow-tickmark-stable
+{
+	background-image:url('../../images/ibm-amber-stable-state.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+.yellow-tickmark-up
+{
+	background-image:url('../../images/ibm-amber-up-state.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+.yellow-tickmark-down
+{
+	background-image:url('../../images/ibm-amber-down-state.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+.red-tickmark-down
+{
+	background-image:url('../../images/ibm-red-down-state.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+.red-tickmark-stable
+{
+	background-image:url('../../images/ibm-redstate.png');
+	background-repeat:no-repeat;
+	background-position: center;
+}
+
+.Table-container .TD-LEFT {
+    border-collapse: collapse;
+	width:25%; 
+	color:black; 
+	text-align:center;
+	vertical-align:top;
+}
+.Table-container .TD-RIGHT {
+    border-collapse: collapse;
+	width:74%; vertical-align:middle;
+}
+.LeftSideTable
+{border-spacing: 4px !important; height:304px; margin:-4px 0 0 0; border-collapse: separate !important}
+.LeftSideTable>tbody>tr>td
+{width:50%;}
+.RightSideTable{height:100%;}
+.RightSideTable>tbody>tr>td:first-child
+{font-weight:bold; border: 1px solid #ddd8cf; padding:7px;}
+.RightSideTable>tbody>tr>td
+{border: 1px solid #ddd8cf;}
+.RightSideTable>thead>tr>th
+{
+	text-align:center;
+	border: 1px solid #d1d1d1 !important;
+	vertical-align:middle;
+    background-color: #51b7d4;
+	color:white;
+}
+.redCol{
+    background-color: #c62e2d !important;
+}
+.YellowCol{
+    background-color: #f7d50c !important;
+}
+.GreenCol{
+    background-color: #2bc95b !important;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

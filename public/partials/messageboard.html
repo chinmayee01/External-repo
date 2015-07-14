@@ -1,0 +1,142 @@
+<div id="viewcontent">
+<!--  Container    -->
+<link href="partials/eCustomCss/MessageBoardCustom.css" rel="stylesheet" media="screen">
+
+<!--   Menu Wrapper    -->
+    <!--  Logo Wrapper    -->
+            <div class="LogoWrapper">
+            <!--  Left Title    -->
+            <div class="Title">
+				<div class="colorBar">
+		<div id="logo">
+        <div id="logo_text" class="ticker_left">                  
+          <div id="scrollerWrapper">
+			<ul id="scroller" >			
+		
+	        <li ng-repeat="tic in tabtdata[0].Ticker"><span>{{tic}}</span></li>
+	
+			</ul>
+			</div>
+        </div>
+
+      </div>
+      </div>
+            </div>
+        <!--   Left Title   -->
+            </div>
+        <!--   Logo Wrapper   -->
+        </div>
+
+<!-- Div Meassge Board Container -->
+<div class="col-sm-12 Container-Class-Last">
+ <div class="Container-Div-Last">
+ 
+  <div class="Message-Board">
+    <div class="Message-Heading">
+     <h3>Message board</h3>
+     <p style="border-bottom: 1px solid rgb(242, 242, 242); padding: 10px 0 10px 0;">This is your group's online Message board. Click a forum below to read or respond to a particular discussion. You can Sort</br> the message board on date & author.</p>
+    </div>
+	<div class="text-Area-Div">
+	 <h4>New post</h4>
+	 <div class="text-Area"><textarea id="textarea" style="width:100%; height:100px" maxlength="500" placeholder="Post a new message here...." ng-model="MessagePostText"></textarea></div>
+	 <div class="Label-Button-Div">
+	  <div class="Textarea-Label"></div>
+	  <div class="post-Button-Div"><button class="Textarea-post-button" ng-click="postClick()" ng-disabled="MessagePostText == null || MessagePostText == '' ">Post</button></div>
+	 </div>
+	</div>
+  </div>
+  
+  <div class="Table-container">
+    <table width="100%" id="thetable">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table class="table RightSideTable" style="min-height:296px; max-height:296px;">
+                    <thead>
+                        <tr class="RightSideSecondTableHeader">
+                            <th style="width:40px">No</th>
+                            <th style="width:520px">Description</th>
+                            <th>Replies</th>
+                            <th >Author</th>
+                            <th>Date/Time</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:left; border:none;" ng-repeat="message in messages">
+                      <tr style="background-color: {{colorarr[$index]}};">
+                            <td class="">{{$index+1}}</td>
+                            <td class="Message-Text-Td">
+                            <a href="/#/messagereply/{{$index}}"> {{message.Post.Content}}</a>
+                            </td>
+                            <td class="">{{message.Post.Reply.length}}</td>
+                            <td class="">{{message.Post.Login_id}}</td>
+                            <td class="">{{message.Post.date | date:"dd/MM/yyyy 'at' h:mma" }}</td>
+                       </tr>
+                           
+                        
+                      </tbody>
+                    </table>
+			  
+			 </tr>
+			 
+			 </table>
+			<input type="hidden" value="{{messagelen}}" id="row_val"> 
+  </div>
+ </div>
+</div>
+<!-- Div Meassge Board Container -->
+
+<!-- Div Warning Message -->
+<div class="col-sm-12 Warning-Div-Container">
+ <div class="Container-Div-class">
+ <div class="Warning-image"><img src="images/caution-icon.png"/></div>
+ <div class="Warning-content">
+   The content provided here is proprietary to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. 
+   Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.
+ </div>
+ </div>
+</div>
+<!-- Div Warning Message -->
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+setTimeout(function(){
+ $(document).ready(function () {
+    $(".loading").css("display", "none");
+
+  //Script for marque//
+    var speed = 5;
+    var items, scroller = $('#scroller');
+    var width = 0;
+    scroller.children().each(function(){
+        width += $(this).outerWidth(true);
+    });
+    scroller.css('width', width);
+    scroll();
+    function scroll(){
+        items = scroller.children();
+        var scrollWidth = items.eq(0).outerWidth();
+        scroller.animate({'left' : 0 - scrollWidth}, scrollWidth * 100 / speed, 'linear', changeFirst);
+    }
+    function changeFirst(){
+        scroller.append(items.eq(0).remove()).css('left', 0);
+        scroll();
+    }
+  //Script for marque//
+	
+	//Function To Calculate Number of Characters inside TEXTAREA
+	var text_max = 500;
+    $('.Textarea-Label').html('you have ' + text_max + ' characters left');
+
+    $('#textarea').keyup(function() {
+        var text_length = $('#textarea').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('.Textarea-Label').html('you have ' + text_remaining + ' characters left');
+    });
+
+});
+},3500);
+</script>
+</div>
+

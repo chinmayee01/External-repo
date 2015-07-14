@@ -1,0 +1,263 @@
+<!-- As per Wed 1 July 2015 -->
+<div id="viewcontent">
+<script>
+$(document).ready(function () {
+$(".loading").css("display", "none");
+});
+
+$(function(){
+    $('#btn-upload').click(function(e){
+        e.preventDefault();
+        $('#file').click();}
+    );
+});
+</script>
+<!--  Container    -->
+<link href="partials/eCustomCss/AdminReportContentCustom.css" rel="stylesheet" media="screen">
+<div class="Container">
+
+
+
+<div class="col-sm-12 Container-Class-Last">
+ <div class="Container-Div-Last">
+ 
+  <div class="Message-Board">
+    <div class="Message-Heading">
+     <h3>Reports Page</h3>
+    </div>
+    
+    
+    
+    
+    
+	<div class="text-Area-Div">	
+	 <h5>Description</h5>
+	 <!-- ------------------------------------------------------------------------------------------------------------------ -->
+	 <!-- text area for showing page description -->
+	 <div class="text-Area"><textarea id="textarea" style="width:100%; height:100px" ng-model="pagedescription"></textarea></div>
+	 <!-- ------------------------------------------------------------------------------------------------------------------ -->
+	 <div class="Label-Button-Div">
+	  <div class="Textarea-Label"></div>
+
+	 </div>
+	</div>
+	<div>
+	
+	
+<!-- using a form to submit data to node.js server and updating the schema definition-->	
+<form id        =  "uploadForm"
+     enctype   =  "multipart/form-data"
+     action = "http://localhost:3000/api/photo"
+     method    =  "post"
+     target  = "_blank"
+     ng-submit="repsubmit()"> 
+	
+	<div class="col-sm-12">
+ 		<div class="Container-Div-class">  
+  			<div class="Table-container2">
+  	
+
+   				 <!-- showing/updating reports page data -->
+   				 <table style="width: 100%">
+			      <tr>
+			       <td class="TD-RIGHT">
+				    <table> 
+                     <tr>
+                      <td>
+                       <input maxlength="20" class="text-box2" type="text" ng-model="wsr">
+                      </td>
+                     </tr>
+                     <tr>
+                       <td><input name="filedate11" class="datepicker" ng-model="filedate11" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text" id="status111" class="text-box1" ng-model="status11"/></td>
+                       <td  ><input data-file type="file" id="file11" name="file11"  onchange="angular.element(this).scope().fileNameChanged11(this.value)"/></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate12" class="datepicker" ng-model="filedate12" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text" id="status12"  class="text-box1" ng-model="status12"></td>
+                       <td  ><input data-file type="file" id="file12" name="file12" onchange="angular.element(this).scope().fileNameChanged12(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate13" class="datepicker" ng-model="filedate13" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text" id="status13" class="text-box1" ng-model="status13"></td>
+                       <td  ><input data-file type="file" id="file13" name="file13" onchange="angular.element(this).scope().fileNameChanged13(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate14" class="datepicker" ng-model="filedate14" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text" id="status14" class="text-box1" ng-model="status14"></td>
+                       <td  ><input data-file type="file" id="file14" name="file14" onchange="angular.element(this).scope().fileNameChanged14(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate15" class="datepicker" ng-model="filedate15" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text" id="status15" class="text-box1" ng-model="status15"></td>
+                       <td  ><input data-file type="file" id="file15" name="file15" onchange="angular.element(this).scope().fileNameChanged15(this.value)" /></td>
+					 </tr>
+                    </table>
+			       </td>
+			      </tr>
+			    </table>
+			 
+			 </div>
+			 
+  
+ </div>
+</div>
+
+<div class="space"></div><hr>
+<div class="col-sm-12">
+ 		<div class="Container-Div-class">  
+  			<div class="Table-container2">
+			 
+			 <table style="width: 100%">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table> 
+                    <tr>
+                    <td>
+                    <input maxlength="20" class="text-box2" type="text" ng-model="slmr">
+                    </td>
+                    </tr>
+                        <tr>
+                       <td><input name="filedate21" class="datepicker" ng-model="filedate21" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status21"></td>
+                       <td  ><input data-file type="file" id="file21" name="file21" onchange="angular.element(this).scope().fileNameChanged21(this.value)"/></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate22" class="datepicker" ng-model="filedate22" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status22"></td>
+                       <td  ><input data-file type="file" id="file22" name="file22"  onchange="angular.element(this).scope().fileNameChanged22(this.value)"/></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate23" class="datepicker" ng-model="filedate23" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format /> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status23"></td>
+                       <td  ><input data-file type="file" id="file23" name="file23" onchange="angular.element(this).scope().fileNameChanged23(this.value)"/></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate24" class="datepicker" ng-model="filedate24" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status24"></td>
+                       <td  ><input data-file type="file" id="file24" name="file24" onchange="angular.element(this).scope().fileNameChanged24(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate25" class="datepicker" ng-model="filedate25" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status25"></td>
+                       <td  ><input data-file type="file" id="file25" name="file25" onchange="angular.element(this).scope().fileNameChanged25(this.value)" /></td>
+					 </tr>
+                        
+                             
+                  
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+			 
+  </div>
+  
+ </div>
+</div>
+<div class="space"></div><hr>
+<div class="col-sm-12">
+ 		<div class="Container-Div-class">  
+  			<div class="Table-container2">
+   				 <table style="width: 100%">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table> 
+                    <tr>
+                    <td>
+                    <input maxlength="20" class="text-box2" type="text" ng-model="sgp">
+                    </td>
+                    <tr>
+                       <td><input name="filedate31" class="datepicker" ng-model="filedate31" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status31"></td>
+                       <td  ><input data-file type="file" id="file31" name="file31" onchange="angular.element(this).scope().fileNameChanged31(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate32" class="datepicker" ng-model="filedate32" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status32"></td>
+                       <td  ><input data-file type="file" id="file32" name="file32" onchange="angular.element(this).scope().fileNameChanged32(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate33" class="datepicker" ng-model="filedate33" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status33"></td>
+                       <td  ><input data-file type="file" id="file33" name="file33" onchange="angular.element(this).scope().fileNameChanged33(this.value)"/></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate34" class="datepicker" ng-model="filedate34" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status34"></td>
+                       <td  ><input data-file type="file" id="file34" name="file34" onchange="angular.element(this).scope().fileNameChanged34(this.value)"/></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate35" class="datepicker" ng-model="filedate35" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status35"></td>
+                       <td  ><input data-file type="file" id="file35" name="file35" onchange="angular.element(this).scope().fileNameChanged35(this.value)"/></td>
+					 </tr>
+                  
+                  
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+	</div>
+  
+ </div>
+</div>
+<div class="space"></div><hr>
+<div class="col-sm-12">
+ 		<div class="Container-Div-class">  
+  			<div class="Table-container2">		 
+			 <table style="width: 100%">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table> 
+                    <tr>
+                    <td>
+                    <input maxlength="20" class="text-box2" type="text" ng-model="ter"/>
+                    </td>
+                    </tr>
+                        <tr>
+                       <td><input name="filedate41" class="datepicker" ng-model="filedate41" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status41"></td>
+                       <td  ><input data-file type="file" id="file41" name="file41" onchange="angular.element(this).scope().fileNameChanged41(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate42" class="datepicker" ng-model="filedate42" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status42"></td>
+                       <td  ><input data-file type="file" id="file42" name="file42" onchange="angular.element(this).scope().fileNameChanged42(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate43" class="datepicker" ng-model="filedate43" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status43"></td>
+                       <td  ><input data-file type="file" id="file43" name="file43" onchange="angular.element(this).scope().fileNameChanged43(this.value)"/></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate44" class="datepicker" ng-model="filedate44" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status44"></td>
+                       <td  ><input data-file type="file" id="file44" name="file44" onchange="angular.element(this).scope().fileNameChanged44(this.value)" /></td>
+					 </tr>
+					 <tr>
+                       <td><input name="filedate45" class="datepicker" ng-model="filedate45" ui-date="{ dateFormat: 'D dd-mm-yy' }" ui-date-format/> <i class="glyphicon glyphicon-calendar"></i></td>
+                       <td><input type="text"  class="text-box1" ng-model="status45"></td>
+                       <td  ><input data-file type="file" id="file45" name="file45" onchange="angular.element(this).scope().fileNameChanged45(this.value)"/></td>
+					 </tr>
+                       
+                        
+                  
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+			
+			 
+  </div>
+  
+ </div>
+</div>
+ <input type="submit" class  ="Textarea-save-button" value="Save" name="submit" >
+			  
+			 </form>
+	</div>
+  </div>
+ </div>
+</div>
+</div>
+

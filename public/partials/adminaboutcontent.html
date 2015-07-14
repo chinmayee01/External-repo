@@ -1,0 +1,47 @@
+<div id="viewcontent">
+<script>
+$(document).ready(function () {
+$(".loading").css("display", "none");
+});
+</script>
+<!--  Container    -->
+<link href="partials/eCustomCss/AdminAboutContentCustom.css" rel="stylesheet" media="screen">
+<div class="Container">
+<div class="col-sm-12 Container-Class-Last">
+ <div class="Container-Div-Last">
+ 
+  <div class="Message-Board">
+    <div class="Message-Heading">
+     <h3>About Page - Content</h3>
+    </div>
+	<div class="text-Area-Div">
+	<h5>Show/Hide Page</h5>
+	<!-- Flag to show/hide this page -->
+	<div>
+	 <select ng-model="aboutflag">
+	  <option value="true">Show</option>
+	  <option value="false">Hide</option>
+	 </select>
+	</div>
+	<!-- Heading section for about content -->
+	
+	 <h5>Heading for the content (<span style="color:rgb(171, 169, 169);">It should be kept at 200 characters limit</span>)</h5>
+	 <input maxlength="200" class="text-box1"type="text" ng-model="aboutheading">
+	 
+	 <!-- Description section for about content -->
+	 
+	 <h5>Description</h5>
+	 <div class="text-Area"><textarea id="textarea" style="width:100%; height:100px" ng-model="aboutdescription"></textarea></div>
+	 <div class="Label-Button-Div">
+	  <div class="Textarea-Label"></div>
+	  <div class="post-Button-Div">
+	   <button class="Textarea-save-button" ng-click="submit()">Save</button>
+	   <button class="Textarea-cancel-button" ng-click="check()">Cancel</button>
+	  </div>
+	 </div>
+	</div>
+  </div>
+ </div>
+</div>
+</div>
+

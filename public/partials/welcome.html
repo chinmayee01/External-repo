@@ -1,0 +1,464 @@
+<!--  ticket tool integrated-->
+<div id="viewcontent">
+<!--  Container    -->
+<link href="partials/eCustomCss/WelcomeCustom.css" rel="stylesheet" media="screen">
+<link href="../stylesheets/tooltipster.css" rel="stylesheet" media="screen">
+
+<div id="col-sm-12" class="col-sm-12">
+  <div class="Container-Div-class">
+  <!-- Login Message Div -->
+   <div class="loginmessage-div">
+    <div class="header-strip">
+     <div class="ibm-logo-div"><img src="images/ibm-logo.png"/></div>
+     <div class="alert-icon-div"><img src="images/alert-icon.jpg"/></div>
+    </div>
+    <div class="message-content">
+     <p>The content provided here is proprietery to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.</p>
+     <span><a target="_blank" href="https://w3-03.ibm.com/ibm/documents/corpdocweb.nsf/ObjectFileDocView/BCG+English+%28C%29+2015.pdf/$File/BCG+English+%28C%29+2015.pdf">IBM Business Conduct Guidelines (BCG)</a></span>
+     <p style="margin:0">The Business Conduct Guidelines specify IBM's standard of business ethics, basic values and principles. The guidelines provide general guidence for resolving a variety of legal and ethical questions for employees of IBM, including its subsidiaries and affiliates.</p>
+    </div>
+    <div class="checkbox-div">
+     <div class="inline-content"><input id="isCheckBoxSelected" type="checkbox"></div><div class="inline-content">I have read and agree to the IBM Business Conduct Guidelines</div>
+     <div class="Error-Message">Must confirm that you had read and agree with IBM Business Conduct Guidelines</div>
+    </div>
+    <div class="button-div">
+    <button class="agree">Accept</button>
+    <a href="logout.html" style="text-decration:none; color:#333;"onclick="setTimeout(function(){var ww = window.open(window.location, '_self'); ww.close(); }, 1000);"><button class="decline">Decline</button></a>
+    </div>
+  </div>
+  <!-- Login Message Div -->
+  </div>
+  </div>
+  
+<!--   Menu Wrapper    -->
+    <!--  Logo Wrapper    -->
+            <div class="LogoWrapper">
+            <!--  Left Title    -->
+            <div class="Title">
+				<div class="colorBar">
+		<div id="logo">
+        <div id="logo_text" class="ticker_left">                  
+          <div id="scrollerWrapper">
+			<ul id="scroller" >			
+	        <li ng-repeat="tic in tabtdata[0].Ticker"><span>{{tic}}</span></li>	
+			</ul>
+			</div>
+        </div>
+      
+      </div>
+      </div>
+            </div>
+        <!--   Left Title   -->
+            </div>
+        <!--   Logo Wrapper   -->
+        </div>
+<div class="Container">
+        <!--   Banner Images -->
+            <div class="BannerImageWrapper">
+			<img src="{{tabtdata[0].welcomePageSchema.Banner}}"/>
+            </div>
+        <!--  Banner Images   -->
+    
+</div>
+</div>
+
+<!-- Div We are here now -->
+<div class="col-sm-12 Container-Class" ng-show="tabtdata[0].welcomePageSchema.We_Are_Here.Show_Flag">
+  <div class="Container-Div-class">
+  <h3 class="Heading-Class-h3">{{tabtdata[0].welcomePageSchema.We_Are_Here.Tab_name}}</h3>
+  <div style="float: right;margin-top: -40px;">{{tabtdata[0].welcomePageSchema.Keys_Success_Left.as_of_date | date:"EEEE dd-MM-yyyy"}}</div>
+  <div class="progress">
+  
+  <span ng-repeat="x in tabtdata[0].welcomePageSchema.We_Are_Here.Phases">
+   <div class="{{x.Stage}}">
+      <span ng-repeat="y in x.Phase_detail">
+         <div class="{{y.Class}}">
+         <span class="{{y.Marker_Class}}"></span>
+         <label class="title" ><span ng-repeat="z in y.Description">{{z}}<br></span></label>
+         </div>
+         <span class="{{y.Bannner_Class}}"></span>
+      </span>
+   </div>
+  </span>    
+  </div>
+  </div>
+</div>
+<!-- Div We are here now -->
+
+<!-- Div Key Dates To Watch Out -->
+<div class="col-sm-12 Container-Class" ng-show="tabtdata[0].welcomePageSchema.Key_Dates_Watch[0].Show_Flag">
+  <div class="Container-Div-class">
+  <h3 class="Heading-Class-h3">{{tabtdata[0].welcomePageSchema.Key_Dates_Watch[0].Tab_name}}</h3>
+  <div class="Table-container">
+    <table width="100%">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table class="table RightSideTable" style="min-height:296px; max-height:296px;">
+                    <thead>
+                        <tr class="RightSideSecondTableHeader">
+                            <th style="width:260px">Milestones</th>
+                            <th style="width:120px">Target date</th>
+                            <th style="width:120px">Status</th>
+                            <th style="max-width:200px">Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:left" ng-repeat="abc in tabtdata[0].welcomePageSchema.Key_Dates_Watch[0].Phases[0].Phase">
+                        
+                        <tr>
+                         <td class="phase-td" colspan="4">Phase &nbsp;{{$index+1}}</td>
+                        </tr>
+                         
+                           <tr ng-repeat="def in abc.Content_Data">
+                            <td class="">{{def.Milestone}}</td>
+                            <td style="white-space:normal">{{def.Target_Date | date:"EEEE dd-MM-yyyy"}}</td>
+                            <td class="{{def.Status}}"></td>
+                            <td class="">{{def.Comments}}</td>
+                           </tr>
+                      </tbody>
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+  </div>
+  </div>
+</div>
+<!-- Div Key Dates To Watch Out -->
+
+<!-- Div 7 Keys to success -->
+<div class="col-sm-12 Container-Class">
+ <div class="Container-Div-class">
+  <div class="header-Strip">
+   <div class="left"><h3 class="Heading-Class-h3">7 Keys to success</h3></div>
+   <div class="right"><h5 class="Heading-Class-h5"> {{tabtdata[0].welcomePageSchema.Keys_Success_Left.as_of_date | date:"EEEE dd-MM-yyyy"}}</h5></div>
+  </div>
+  <div class="Table-container">
+    <table width="100%">
+			 <tr>
+			 <td class="TD-LEFT" ng-show="tabtdata[0].welcomePageSchema.Keys_Success_Left.Show_Flag">
+			  <table width="100%" class="LeftSideTable">
+			  <tbody>
+                        <tr>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Stakeholders}}">Stakeholders</br>are Committed</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Business_Benefits}}">Business Benefits</br>are Realized</td>
+                        </tr>
+						<tr>
+							<td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Work_Schedule}}">Work and</br> Schedule</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Team}}">High Performing</br> Team</td>
+                        </tr>
+                        <tr>
+							<td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Scope_Managed}}">Scope </br>Managed</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Risks}}">Risks</td>
+                        </tr>
+                        <tr>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Organization_Benefits}}">Organization</br> Benefit</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Left.Overall_Status}}">Overall</br> Status</td>
+                        </tr>
+			    </tbody>
+                </table>
+		     </td>
+			 <td class="TD-RIGHT">
+				<table class="table RightSideTable" style="min-height:296px; max-height:296px;">
+                    <thead>
+                        <tr class="RightSideSecondTableHeader">
+                            <th style="width:260px;">7 Keys</th>
+                            <th style="max-width:200px;">Comments</th>
+                            <th style="width:90px;">Forecast/Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:left">
+                        <tr>
+                            <td class="heading-colorblue">Stakeholders are Committed <img class="CustomTooltip" title="Identifying, evaluating, informing and influencing the individuals and groups who are effected by or will influence the outcome of the project." src="images/ibm-question-icon.png"/></td>
+                            <td style="white-space:normal">{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Stakeholders.Comments}}</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Stakeholders.Colour_Forecast}}"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="heading-colorblue">Business Benefits are being realized <img class="CustomTooltip" title="Estimating, measuring, and monitoring the benefits that will be gained from the project. Benefit includes expected result and the associated cost, both financial and non-financial, of achieving that result." src="images/ibm-question-icon.png"/></td>
+                            <td style="white-space:normal">{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Business_Benefits.Comments}}</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Business_Benefits.Colour_Forecast}}"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="heading-colorblue">Work & Schedule are Predictable <img class="CustomTooltip" title="Controlling the production and acceptance of project services and deliverables, and verifying their provision to specified performance and acceptance requirements." src="images/ibm-question-icon.png"/></td>
+                            <td style="white-space:normal">{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Work_Schedule.Comments}}</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Work_Schedule.Colour_Forecast}}"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="heading-colorblue">High Performing Team <img class="CustomTooltip" title="Identifying, mobilizing, and developing the people required for the project team. Obtaining and maintaining appropriate space, equipment, and other resources required to successfully complete the project." src="images/ibm-question-icon.png"/></td>
+                            <td style="white-space:normal">{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Team.Comments}}</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Team.Colour_Forecast}}"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="heading-colorblue">Scope is Realistic and Managed <img class="CustomTooltip" title="Agreeing, maintaining, and amending the boundaries of the project." src="images/ibm-question-icon.png"/></td>
+                            <td style="white-space:normal">{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Scope_Managed.Comments}}</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Scope_Managed.Colour_Forecast}}"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="heading-colorblue">Risks are being Mitigated <img class="CustomTooltip" title="Identifying and evaluating risks and issues. Developing avoidance, mitigation, and resolution activities to counteract those risks and issues." src="images/ibm-question-icon.png"/></td>
+                            <td style="white-space:normal">{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Risks.Comments}}</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Risks.Colour_Forecast}}"></td>
+                        </tr>
+
+                        <tr>
+                            <td class="heading-colorblue">Organization Benefit is being realized <img class="CustomTooltip" title="Establishing, agreeing, and monitoring value added and effective knowledge transfer that IBM, acting as the delivery organization, brings to the project." src="images/ibm-question-icon.png"/></td>
+                            <td style="white-space:normal">{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Organization_Benefits.Comments}}</td>
+                            <td class="{{tabtdata[0].welcomePageSchema.Keys_Success_Right.Organization_Benefits.Colour_Forecast}}"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+			  </td>
+			 
+			 </td>
+			 </tr>
+			 </table>
+  </div>
+ </div>
+</div>
+<!-- Div 7 Keys to success -->
+
+<!-- Div Operational Stability -->
+<div class="col-sm-12 Container-Class" ng-show="tabtdata[0].welcomePageSchema.Operational_Stability[0].Show_Flag">
+ <div class="Container-Div-class">
+   
+   <h3 class="Heading-Class-h3">{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Tab_name}}</h3>
+   
+   <div class="Left-Div">
+    <div class="Left-Div-TopLeft">
+	 <div class="{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Total_down_time_month.Total_down_time_month_fig_class}}">
+      <div class="overlay">{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Total_down_time_month.Total_down_time_month_fig}}</div>
+	  <label class="progress-radial-label" ng-repeat="a in tabtdata[0].welcomePageSchema.Operational_Stability[0].Total_down_time_month.Total_down_time_month_note">{{a}}</label>
+     </div>
+	</div>
+	
+	<div class="Left-Div-TopRight">
+	 <div class="{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Total_down_time_Q.Total_down_time_Q_fig_class}}">
+      <div class="overlay">{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Total_down_time_Q.Total_down_time_Q_fig}}</div>
+	  <label class="progress-radial-label" ng-repeat="b in tabtdata[0].welcomePageSchema.Operational_Stability[0].Total_down_time_Q.Total_down_time_Q_note">{{b}}</label>
+     </div>
+	</div>
+	
+	<div class="Left-Div-Bottom">
+	 <div class="{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Avg_MTTR1.Avg_MTTR_fig1_class}}">
+      <div class="overlay">{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Avg_MTTR1.Avg_MTTR_fig1}}</div>
+	  <label class="progress-radial-label" ng-repeat="c in tabtdata[0].welcomePageSchema.Operational_Stability[0].Avg_MTTR1.Avg_MTTR_note1">{{c}}</label>
+     </div>
+	</div>
+   </div>
+   
+   <div class="right-Div">
+     <div class="Left-Div-TopLeft">
+       <div class="{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Red_High_Priority_Incid.Red_High_Priority_Incid_fig_class}}">
+	   <div class="overlay">{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Red_High_Priority_Incid.Red_High_Priority_Incid_fig}}</div>
+	  <label class="progress-radial-label" ng-repeat="d in tabtdata[0].welcomePageSchema.Operational_Stability[0].Red_High_Priority_Incid.Red_High_Priority_Incid_note">{{d}}</label>
+     </div>
+	</div>
+	
+	<div class="Left-Div-TopRight">
+	 <div class="{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Red_High_Priority_Incid_3and4.Red_High_Priority_Incid_3and4_fig_class}}">
+      <div class="overlay">{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Red_High_Priority_Incid_3and4.Red_High_Priority_Incid_3and4_fig}}</div>
+	  <label class="progress-radial-label" ng-repeat="e in tabtdata[0].welcomePageSchema.Operational_Stability[0].Red_High_Priority_Incid_3and4.Red_High_Priority_Incid_3and4_note">{{e}}</label>
+     </div>
+	</div>
+	
+	<div class="Left-Div-Bottom">
+	 <div class="{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Avg_MTTR2.Avg_MTTR_fig2_class}}">
+      <div class="overlay">{{tabtdata[0].welcomePageSchema.Operational_Stability[0].Avg_MTTR2.Avg_MTTR_fig2}}</div>
+	  <label class="progress-radial-label" ng-repeat="f in tabtdata[0].welcomePageSchema.Operational_Stability[0].Avg_MTTR2.Avg_MTTR_note2">{{f}}</label>
+     </div>
+	</div>
+   </div>
+  </div>
+</div>
+<!-- Div Operational Stability -->
+
+
+
+<div class="col-sm-12 Container-Class-Last">
+ <div class="Container-Div-Last">
+  
+  <!-- Div Message Board -->
+  <div class="Message-Board">
+    <div class="Message-Heading">
+     <h3>Message board</h3>
+    </div>
+	<div class="text-Area-Div">
+	 <div class="text-Area"><textarea id="textarea" style="width:100%; height:100px" maxlength="500" placeholder="Post a new message here...." ng-model="MessagePostText"></textarea></div>
+	 <div class="Label-Button-Div">
+	  <div class="Textarea-Label"></div>
+	  <div class="post-Button-Div"><button class="Textarea-post-button" ng-click="postClick()" ng-disabled="MessagePostText == null || MessagePostText == '' ">Post</button></div>
+	 </div>
+	</div>
+
+	<span ng-repeat="message in resArr">
+	<div class="Message-Div">
+	  <div class="Message-Text">
+	   <p>{{message.Post.Content}}</p>
+	  </div>
+	  <div class="Message-Links">
+	   <div class="Status-Div">{{message.Post.Login_id}} Posted on {{message.Post.date | date:"MM/dd/yyyy 'at' h:mma"}} </div>
+	   <div class="Replies-Div"><a href="/#/messagereply/{{$index}}" >Reply</a> | <a>Replies: {{message.Post.Reply.length}}</a></div>
+	  </div>
+	</div>
+	</span>
+  </div>
+  <!-- Div Message Board -->
+  
+  <!-- Div Calendar -->
+  <div class="Calendar-Div">
+   <div class="Calendar-Heading">
+    <div class="Heading-Class"><h3>Upcoming events</h3></div>
+    <div class="Add-Event"><a id="addevent" href="">Add an event</a></div>
+   </div>
+   
+   <form class="addevent-form">
+    <div class="Heading-Class-h3"><h4>New event</h4></div>
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" placeholder="Heading" maxlength="50" class="form-control empty-textbox" />
+      </div>
+      <div class="input-group">
+        <input type="text" placeholder="Description" maxlength="50" class="form-control empty-textbox" />
+      </div>
+      <div class='input-group date' id='datepicker1'>
+        <input type='text' placeholder="Today" class="form-control" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+      <div class='input-group date' id='timepicker1'>
+        <input type='text' placeholder="Time" class="form-control" />
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+        </span>
+      </div>
+      <div class="button-groupbar">
+       <button type="submit" class="btn btn-success">Save</button>
+       <button type="button" id="cancel" class="btn btn-danger">Cancel</button>
+      </div>
+    </div>
+   </form>
+   
+   <div class="calendar-container"  ng-init="loadEvents()">
+     <div class="well well-sm">
+       <calendar ng-model="currentDate" calendar-mode="mode" event-source="eventSource" range-changed="reloadSource(startTime, endTime)" event-selected="onEventSelected(event)"></calendar>
+     </div> 
+   </div>
+  </div>
+  <!-- Div Calendar -->
+  
+ </div>
+</div>
+
+<!-- Div Warning Message -->
+<div class="col-sm-12 Warning-Div-Container">
+ <div class="Container-Div-class">
+ <div class="Warning-image"><img src="images/caution-icon.png"/></div>
+ <div class="Warning-content">
+   The content provided here is proprietary to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. 
+   Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.
+ </div>
+ </div>
+</div>
+<!-- Div Warning Message -->
+
+<div id="footer"></div>
+
+<link href="partials/eCustomCss/style.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="partials/js/jquery.tooltipster.js"></script>
+<script type="text/javascript" src="../bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="../bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
+<link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" />
+<script>
+setTimeout(function(){
+	$(".content").hide(); // hides the content DIV
+  $(document).ready(function () {
+    
+    $(".agree").click(function() {
+        if ($('#isCheckBoxSelected').is(":checked")) {
+            $("#col-sm-12").css("display", "none");
+        } else {
+            $(".Error-Message").css("display", "block");
+        }
+    });
+    
+    
+    
+    $(".loading").css("display", "none");
+    
+    $("#addevent").click(function () {
+     $(".addevent-form").stop().slideDown();
+     return false;
+    });
+    
+    $("#cancel").click(function() {
+        $(".addevent-form").slideUp().find('input, select').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
+    });
+    
+    
+    //marque
+        var speed = 5;
+    var items, scroller = $('#scroller');
+    var width = 0;
+    scroller.children().each(function(){
+        width += $(this).outerWidth(true);
+    });
+    scroller.css('width', width);
+    scroll();
+    function scroll(){
+        items = scroller.children();
+        var scrollWidth = items.eq(0).outerWidth();
+        scroller.animate({'left' : 0 - scrollWidth}, scrollWidth * 100 / speed, 'linear', changeFirst);
+    }
+    function changeFirst(){
+        scroller.append(items.eq(0).remove()).css('left', 0);
+        scroll();
+    }
+    
+    
+    //Function to show date picker
+    $('#datepicker1').datetimepicker({
+     format:'LL',
+     showTodayButton: true,
+     showClose: true,
+     showClear: true
+    });
+    
+    //Function to show time picker
+    $('#timepicker1').datetimepicker({
+     format: 'LT',
+     toolbarPlacement: 'bottom',
+     showClose: true,
+     showClear: true
+    });
+    
+    //Function to show tooltip
+    $('.CustomTooltip').tooltipster({
+     maxWidth: 300,
+     position:'right',
+     theme: 'tooltipster-default',
+    });
+
+	//Function To Calculate Number of Characters inside TEXTAREA
+	var text_max = 500;
+    $('.Textarea-Label').html('you have ' + text_max + ' characters left');
+
+    $('#textarea').keyup(function() {
+        var text_length = $('#textarea').val().length;
+        var text_remaining = text_max - text_length;
+
+        $('.Textarea-Label').html('you have ' + text_remaining + ' characters left');
+    });
+    
+      $(".loading").fadeOut("slow"); // loading DIV fades out
+      $(".content").fadeIn("slow"); // content DIV fades in
+  
+   })
+ ;},5500);
+    
+</script>
+</div>
+

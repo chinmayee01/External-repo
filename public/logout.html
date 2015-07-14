@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="cbsExtApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selfcare Portal</title>
+<script>
+//Script For Disabling Browser Back Button
+history.pushState(null, null, 'logout.html');
+window.addEventListener('popstate', function(event) {
+ history.pushState(null, null, 'logout.html');
+});
+</script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+.Container-Div-class
+ {
+  clear:both;
+  margin:auto;
+  width:980px;
+  height: 600px;
+  background-image: url(images/ibm-cloud.png);
+  background-repeat: no-repeat;
+  background-position: center;
+ }
+ .Container-Div-class .content-Div
+ {
+  float:left;
+  margin: 245px 0 0 506px;
+ }
+</style> 
+</head>
+<body>
+<div class="col-sm-12">
+  <div class="Container-Div-class">
+   <div class="content-Div">
+    <img src="images/ibm-cbs-logo.png"/><br>
+    <h3 style="color:#2898b8; font-weight:500;">You are now logged out</h3>
+    <p>We recommend that you close your web browser when<br> you have finished your online session</p>
+    <p><a href="http://localhost:6001/">Click here</a> to Log on again</p>
+   </div>
+  </div>
+</div>
+</body>

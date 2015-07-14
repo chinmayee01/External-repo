@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" ng-app="cbsExtApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selfcare Portal</title>
+<link rel="stylesheet" href="partials/eCustomCss/header.css" media="screen">
+<link rel="stylesheet" href="dist/css/calendar.min.css"/>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular/angular-route.js"></script> 
+<script src="dist/js/calendar-tpls.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<!-- <script src="partials/js/jquery.js"></script>
+<script src="partials/js/jquery.sooperfish.js"></script>-->
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="loading"></div>
+
+<script>
+// Script for Dynamic Navigation menu & Page Loading Image //
+	$(document).ready(function () {
+	     $('.tab-menu-item').click(function() {
+         $('.tab-menu-item').removeClass('tab-menu-item-arrow');
+         $(this).addClass('tab-menu-item-arrow');
+        });
+     $('.tab-menu-item').on('click', function (){$('.loading').css('display','block');});
+     $(document).on('click', '.tab-menu-item-arrow', function (){$('.loading').delay( 2000 ).fadeOut();}); 
+    });
+ // Script for Dynamic Navigation menu & Page Loading Image //
+</script>
+
+<!--  <div ng-controller="indexCtrl">{{indata.User}} {{indata.Company}}</div> -->
+
+<div class="Container_wrapper">
+<div class="InnerContainer">
+    <!--  TopMenu Bar    -->
+    <div class="colorBar">
+		<div id="logo">
+        <div id="logo_text">                  
+          <img src="images/ibm-logo.png"/>
+        </div>
+        <div id="logo_text1">                  
+          <img src="images/Jostens-Images/jostens-logo.png"/></div>
+      </div>
+      </div>
+    </div>
+    <!--  TopMenu Bar   -->
+    <!--  Middle Part    -->
+    <div class="MiddleWrapper">
+        <!--  Left Title    -->
+            <div class="Title">
+				<div class="colorBar">
+		<div id="logo" ng-controller="abtCtrl">
+        <div id="logo_text">                  
+          <img src="images/ibm-josten-projname.png"/>
+        </div>
+      <div id="logo_text1" style="padding-top: 9px;font-size: 14px;padding-right: 25px;color: white;">                  
+          Welcome &nbsp; <b>{{userName}}</b>
+       <div class="dropdown">
+        <button class="logout-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+         <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Logout</a></li>
+        </ul>
+       </div>    
+      </div>
+      </div>
+      </div>
+            </div>
+        <!--   Left Title   -->
+        
+        
+    </div>
+    <!--  Middle Part    -->
+    <!--   Menu Wrapper    -->
+    
+	<div class="MenuWrapper" id="menus" ng-controller="abtCtrl">
+    <nav>
+    <ul class="sf-menu" id="nav" style="float: left;margin-top: 13px;">
+      <li class="selected"><a href="/#/welcome" class="selecte_other tab-menu-item" style="border:none !important;"></a></li>
+    </ul>
+    <ul class="sf-menu" id="nav" style="float: right;">
+          <span ng-show="tabtdata[0].aboutPageSchema.Show_Flag===true"><li ><a href="/#/about" class="tab-menu-item" >ABOUT</a></li><li style="padding-top: 11px;">|</li></span>
+          <span ng-show="tabtdata[0].dashboardPageSchema.Show_Flag===true"><li><a href="/#/dashboard" class="tab-menu-item">DASHBOARD</a></li><li style="padding-top: 11px;">|</li></span>
+          <span ng-show="tabtdata[0].reportPageSchema.Show_Flag===true"><li><a href="/#/report" class="tab-menu-item">REPORTS</a></li><li style="padding-top: 11px;">|</li></span>
+          <span ng-show="showMessageBoard===true"><li><a href="/#/messageboard" class="tab-menu-item">MESSAGE BOARD</a></li><li style="padding-top: 11px;">|</li></span>
+          <span ng-show="showTicketTool===true"><li><a href="https://support.ibmcloud.com/ics/support/mylogin.asp?splash=1" target="_blank">TICKET TOOL</a>
+          <ul class="sub_menus tkt_sub">          
+          <li  class="sub" ng-repeat="ticket in tabtdata[0].ticketToolPageSchema"><a href="{{ticket.Link_url}}" target="_blank" >{{ticket.Link_name}}</a></li>          
+          </ul>
+          </li>
+          <li style="padding-top: 11px">|</li></span>
+          <span ng-show="showGateway===true"><li><a href="">GATEWAY</a>
+          <ul class="sub_menus">
+          <span ng-repeat="gatewaylinksdata in tabtdata[0].gatewayPageSchema">
+          <li  class="sub"><a href="{{gatewaylinksdata.Link_url}}" target="_blank" >{{gatewaylinksdata.Link_name}}</a></li>
+          </span>
+          </ul>          
+          </li><li style="padding-top: 11px">|</li></span>
+          <span ng-show="tabtdata[0].knowledgeBasePageSchema.Show_Flag===true"> <li><a href="/#/knowledgebase" class="tab-menu-item">KNOWLEDGE BASE</a></li></span>
+                     
+     </ul>
+    </nav>
+    </div>
+    
+<div ng-view></div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+@font-face {
+    font-family: HelveticaNeue-Light;
+    src: local(HelveticaNeue-Light), url('../Fonts/HelveticaNeue-Light.otf') format('opentype');
+}
+
+ body {
+    font-family: HelveticaNeue-Light, HelveticaNeue-Regular,' Helvetica','Helvetica Neue Regular', 'Helvetica Neue', HelvRegularIBM !important;
+}
+h1{font-weight:100; font-size:30px}
+
+ html{
+      background: white;
+  }
+    body {
+    width: 100%;
+    height: 575px;
+	overflow:hidden;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    background: url('../../images/cbs-login-background.jpg');
+    background-repeat:no-repeat;
+    }
+	
+	.content-Container
+	{
+	float:left; width:470px; 
+	text-align:justify;
+	margin: 51px 0 0 155px; 
+	height:auto;
+	font-size:16px;
+	color:#FFF;
+	line-height:1.8;
+	}
+
+    .form-signin {
+    max-width: 350px;
+    padding: 19px 29px 29px;
+    margin: 0 auto 20px;
+	float:right;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+    margin-bottom: 10px;
+    height: auto;
+    }
+    .form-signin input[type="text"],
+    .form-signin input[type="password"] {
+    font-size: 18px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 12px;
+	border:none;
+	border-radius:10px;
+	line-height:30px;
+    }
+   
+    .LabelCutomStyle{
+        text-align:center;
+		float:right;
+		color:#333333 !important;
+       
+    }
+    .LabelColor{
+        color: white;        
+    }
+     .radio-inline, .checkbox-inline {
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+    }
+   .RadioHolder{
+        margin-bottom: 50px;
+    }
+    .RadioHolder>input[type="radio"]{
+        margin: 0px !important;
+    }
+    .ExternalRadio{
+        margin-left: 20px !important;
+    }
+	.submit-button
+		 {
+		  font-family: calibri;
+		  margin:0;
+		  font-size: 2em;
+		  color:white;
+		  width:350px;
+		  text-align:center;
+		  border:none;
+		  padding: 15px 0 15px 0;
+		  border-radius:10px;
+		  background: rgb(125,185,232); /* Old browsers */
+			/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+		  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI3JSIgc3RvcC1jb2xvcj0iIzdkYjllOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjU2JSIgc3RvcC1jb2xvcj0iIzAwN2NiMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZTU3OTkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+          background: -moz-linear-gradient(top,  rgba(125,185,232,1) 7%, rgba(0,124,178,1) 56%, rgba(30,87,153,1) 100%); /* FF3.6+ */
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(7%,rgba(125,185,232,1)), color-stop(56%,rgba(0,124,178,1)), color-stop(100%,rgba(30,87,153,1))); /* Chrome,Safari4+ */
+          background: -webkit-linear-gradient(top,  rgba(125,185,232,1) 7%,rgba(0,124,178,1) 56%,rgba(30,87,153,1) 100%); /* Chrome10+,Safari5.1+ */
+          background: -o-linear-gradient(top,  rgba(125,185,232,1) 7%,rgba(0,124,178,1) 56%,rgba(30,87,153,1) 100%); /* Opera 11.10+ */
+          background: -ms-linear-gradient(top,  rgba(125,185,232,1) 7%,rgba(0,124,178,1) 56%,rgba(30,87,153,1) 100%); /* IE10+ */
+          background: linear-gradient(to bottom,  rgba(125,185,232,1) 7%,rgba(0,124,178,1) 56%,rgba(30,87,153,1) 100%); /* W3C */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-8 */
+         }
+	.submit-button:hover
+	{
+          box-shadow: rgba(0, 0, 0, 0.14) 4px 5px 26px 10px;
+		  color: rgb(224, 222, 222);
+	}
+	
+	.radio-div
+	{
+	width:auto;
+	float:left;
+	margin:0 20px 0 0;
+	}
+	.css-checkbox
+	{
+	float:left;
+	}
+    .css-label
+	{
+	float:left;
+	padding: 3px 0 0 10px;
+	font:verdana calibri;
+	font-size:1.3em;
+	color:white;
+ 	}
+@media screen and (max-width: 768px) {
+    body {
+        width: 100%;
+        height: auto;
+        background-size: auto;
+    }
+}

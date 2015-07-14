@@ -1,0 +1,225 @@
+<!-- as per Wed 1 July 2015 -->
+
+<div id="viewcontent">
+<script>
+$(document).ready(function () {
+$(".loading").css("display", "none");
+});
+
+$(function(){
+    $('#btn-upload').click(function(e){
+        e.preventDefault();
+        $('#file').click();}
+    );
+});
+</script>
+<!--  Container    -->
+<link href="partials/eCustomCss/AdminDashboardContentCustom.css" rel="stylesheet" media="screen">
+<div class="Container">
+<div class="col-sm-12 Container-Class-Last">
+ <div class="Container-Div-Last">
+ 
+  <div class="Message-Board">
+    <div class="Message-Heading">
+     <h3>Dashboard</h3>
+    </div>
+	<div class="text-Area-Div">	
+	 <h5 style="font-weight: bold;">TITLE FOR EACH OF THE SECTION</h5>	 
+	</div>
+	
+	<!-- Using form to submit data to node.js server -->
+	<form id        =  "uploadForm"
+     enctype   =  "multipart/form-data"
+     action = "http://localhost:3000/api/photo"
+     method    =  "post"
+     target="_blank"
+     ng-submit="dashSubmit()"> 
+	<div>	
+	<div class="col-sm-12" style="padding-top: 20px;">
+ 		<div class="Container-Div-class">  
+  			<div class="Table-container2">
+   				 <table style="width: 50%;float: left;">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table>
+				<tr><td colspan="2" style="text-align: right;">Hide this event <input type="checkbox" ng-model="hide1"></td></tr> 
+                    <tr>
+                    <td colspan="2">
+                    <input maxlength="20" class="text-box2" type="text" ng-model="service">
+                    </td>
+                    </tr>
+                    
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg11" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file11" name="file11"  onchange="angular.element(this).scope().fileNameChanged11(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg12" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file12" name="file12"  onchange="angular.element(this).scope().fileNameChanged12(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                          <td><input type="text" class="text-box1" ng-model="fileimg13" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file13" name="file13"  onchange="angular.element(this).scope().fileNameChanged13(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg14" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file14" name="file14"  onchange="angular.element(this).scope().fileNameChanged14(this.value)"/>
+						    </td>
+                        </tr>
+            
+                            
+                  
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+			
+			 
+			 <table style="width: 50%;float: right;">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table>
+				<tr><td colspan="2" style="text-align: right;">Hide this event <input type="checkbox" ng-model="hide2"></td></tr> 
+                    <tr>
+                    <td colspan="2">
+                    <input maxlength="20" class="text-box2" type="text" ng-model="operations">
+                    </td>
+                    </tr>                    
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg21" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file21" name="file21"  onchange="angular.element(this).scope().fileNameChanged21(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg22" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file22" name="file22"  onchange="angular.element(this).scope().fileNameChanged22(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg23" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file23" name="file23"  onchange="angular.element(this).scope().fileNameChanged23(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg24" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file24" name="file24"  onchange="angular.element(this).scope().fileNameChanged24(this.value)"/>
+						    </td>
+                        </tr>
+            
+                            
+                  
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+			 
+  </div>
+  
+ </div>
+</div>
+<div class="col-sm-12" style="padding-top: 20px;">
+ 		<div class="Container-Div-class">  
+  			<div class="Table-container2">
+   				 <table style="width: 50%;float: left;">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table>
+				<tr><td colspan="2" style="text-align: right;">Hide this event <input type="checkbox" ng-model="hide3"></td></tr> 
+                    <tr>
+                    <td colspan="2">
+                    <input maxlength="20" class="text-box2" type="text" ng-model="agile">
+                    </td>
+                    </tr>
+                    
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg31" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file31" name="file31"  onchange="angular.element(this).scope().fileNameChanged31(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg32" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file32" name="file32"  onchange="angular.element(this).scope().fileNameChanged32(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg33" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file33" name="file33"  onchange="angular.element(this).scope().fileNameChanged33(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg34" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file34" name="file34"  onchange="angular.element(this).scope().fileNameChanged34(this.value)"/>
+						    </td>
+                        </tr>
+            
+                            
+                  
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+			
+			 
+			 <table style="width: 50%;float: right;">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table>
+				<tr><td colspan="2" style="text-align: right;">Hide this event <input type="checkbox" ng-model="hide4"></td></tr> 
+                    <tr>
+                    <td colspan="2">
+                    <input maxlength="20" class="text-box2" type="text" ng-model="quality">
+                    </td>
+                    </tr>                    
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg41" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file41" name="file41"  onchange="angular.element(this).scope().fileNameChanged41(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg42" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file42" name="file42"  onchange="angular.element(this).scope().fileNameChanged42(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg43" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file43" name="file43"  onchange="angular.element(this).scope().fileNameChanged43(this.value)"/>
+						    </td>
+                        </tr>
+                        <tr>
+                           <td><input type="text" class="text-box1" ng-model="fileimg44" readonly="readonly" ></td>                        
+							<td> <input data-file type="file" id="file44" name="file44"  onchange="angular.element(this).scope().fileNameChanged44(this.value)"/>
+						    </td>
+                        </tr>
+                         
+                  </table>
+                  <table>
+                  <tr>
+                        <td>                          
+			   <input type="submit" class="Textarea-save-button" value="Save"/> 
+			   <button class="Textarea-cancel-button" ng-click="check()">Cancel</button>
+			     </td></tr>
+                  </table>
+			  </td>
+			 </tr>
+			 </table>
+			 
+  </div>
+  
+ </div>
+</div>
+
+ </div>
+ 
+ 
+</form>
+ 
+</div>
+	</div>
+  </div>
+ </div>
+</div>
+</div>
+

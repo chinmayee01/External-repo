@@ -1,0 +1,62 @@
+<div id="viewcontent">
+<script>
+$(document).ready(function () {
+$(".loading").css("display", "none");
+});
+</script>
+<link href="partials/eCustomCss/AdminGatewayCustomAddLink.css" rel="stylesheet" media="screen">
+<div class="col-sm-12 Container-Class-Last">
+ <div class="Container-Div-Last">
+  <div class="Table-container">
+    <table width="100%" id="thetable">
+			 <tr>
+			 <td class="TD-RIGHT">
+			   <h3 style="padding:0 0 20px 0">Gateway - Adding Sub Menu </h3>
+				<table class="table RightSideTable">
+                    <thead>
+                        <tr class="RightSideSecondTableHeader">
+                            <th style="width:220px">Label</th>
+                            <th>URL Link</th>
+                            <th>Update Entry </th>
+                            <th>Delete Entry</th>
+                        </tr>
+                    </thead>
+                    
+                    <!-- Looping through all the gateway links -->
+                    
+                    <tbody ng-repeat="gatedata in garr">
+                      <tr>
+                            <td>{{gatedata.Link_name}}</td>
+                            <td>{{gatedata.Link_url}}</td>
+                            <td><input type="radio" name="a" ng-click="upme($index)"></td>
+                            <td><input type="button" ng-click="delme($index)"></td>
+                       </tr>
+                  
+                    </table>
+			  
+			 </tr>
+			 
+			 </table>
+			 
+  </div>
+  
+  <!-- Section for adding and updating links -->
+  
+  <!-- Start -->
+  <h5>Add more to the table</h5><br>
+  Link Name:<input type="text" ng-model="glink">
+  Link Url<input type="text" ng-model="gurl">
+  <input type="button" value="Push" ng-click="pushh()"><input type="button" value="Push and Update previous" ng-click="pushh2(selval)">
+  <!-- End -->
+  
+  <!-- Submitting data -->
+  <div class="text-Area-Div">
+	  <div class="post-Button-Div">
+	   <button class="Textarea-save-button" ng-click="sub()">Save</button>
+	   <button class="Textarea-cancel-button" ng-click="clr()">Cancel</button>
+	  </div>
+	 </div>
+	</div>
+ </div>
+</div>
+

@@ -1,0 +1,49 @@
+@font-face {
+    font-family: HelveticaNeue-Light;
+    src: local(HelveticaNeue-Light), url('../Fonts/HelveticaNeue-Light.otf') format('opentype');
+}
+
+ body {
+    font-family: HelveticaNeue-Light, HelveticaNeue-Regular,' Helvetica','Helvetica Neue Regular', 'Helvetica Neue', HelvRegularIBM !important;
+	color:#333333;
+}
+h1, h2, h3, h4, h5, h6{padding: 0; margin: 0}
+ .Container-Class
+ {
+  border-bottom:1px solid #d5d5d5;
+ }
+ 
+h4{
+	font-size: 20px;
+}
+ .Container-Div-class
+ {
+  clear:both;
+  margin:auto;
+  width:980px;
+  text-align: justify;
+ }
+ #wrapper {
+     width: 980px;
+     margin: 0 auto;
+     margin-top: 35px;
+}
+#leftcolumn, #rightcolumn {
+    border: 1px solid white;
+    float: left;    
+    color: #333;
+}
+#leftcolumn {
+     width: 490px;
+     
+     
+}
+#rightcolumn {
+     width: 490px;
+     
+}
+.down_load{
+	padding-top: 10px;
+}
+
+

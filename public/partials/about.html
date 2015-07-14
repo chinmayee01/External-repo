@@ -1,0 +1,234 @@
+<div id="viewcontent">
+<!--  Container    -->
+<link href="partials/eCustomCss/AboutCustom.css" rel="stylesheet" media="screen">
+
+<!--   Menu Wrapper    -->
+    <!--  Logo Wrapper    -->
+            <div class="LogoWrapper">
+            <!--  Left Title    -->
+            <div class="Title">
+				<div class="colorBar">
+		<div id="logo">
+        <div id="logo_text" class="ticker_left">                  
+          	<div id="scrollerWrapper">
+			<ul id="scroller" >			
+		
+	        <li ng-repeat="tic in tabtdata[0].Ticker"><span>{{tic}}</span></li>
+	
+			</ul>
+			</div>
+		</div>
+		      
+      </div>
+      </div>
+            </div>
+        <!--   Left Title   -->
+            </div>
+        <!--   Logo Wrapper   -->
+        </div>
+<div class="Container">
+        <!--   Banner Images -->
+            <div class="BannerImageWrapper">
+			<img src="{{tabtdata[0].aboutPageSchema.Banner}}" width="100%"/>
+            </div>
+        <!--  Banner Images   -->
+    
+</div>
+<!--  container   -->
+
+<div class="col-sm-12 Container-Class" ng-show="tabtdata[0].aboutPageSchema.Page_Description.Show_Flag">
+  <div class="Container-Div-class">
+   
+   <h3 class="Heading-Class-about">{{tabtdata[0].aboutPageSchema.Page_Description.Heading}}</h3>
+   <p class="message" ng-repeat="y in tabtdata[0].aboutPageSchema.Page_Description.Content">
+   {{y}}
+   </p> 
+</div>	
+</div>
+<div class="col-sm-12 Container-Class timeline">
+  <div class="Container-Div-class">
+   
+   <h3 class="Heading-Class-about">{{tabtdata[0].aboutPageSchema.Approach_Tab_Name}}</h3>
+   <div class="Left-Div-timeline">
+    <img alt="timeline" src="{{tabtdata[0].aboutPageSchema.Approach_Timeline}}"/>
+</div>
+</div>	
+</div>
+<div class="col-sm-12 Container-Class methodology">
+  <div class="Container-Div-class">
+   
+   <h3 class="Heading-Class-about">{{tabtdata[0].aboutPageSchema.Methodology_Tab_Name }}</h3>
+   <div class="Left-Div-timeline">
+    <img alt="timeline" src="{{tabtdata[0].aboutPageSchema.Methodology}}"/>
+</div>
+</div>	
+</div>
+<div class="col-sm-12 Container-Class scope">
+  <div class="Container-Div-class">
+   
+   <h3 class="Heading-Class-about">{{tabtdata[0].aboutPageSchema.Scope_Tab_Name }}</h3>
+   <div class="Left-Div-timeline">
+    <img alt="timeline" src="{{tabtdata[0].aboutPageSchema.Scope_Image}}"/>
+</div>
+</div>	
+</div>
+
+<!-- Div Slick Team Slider -->
+<div class="col-sm-12 Container-Class" ng-show="tabtdata[0].aboutPageSchema.Core_Team[0].Show_Flag">
+  <div class="Container-Div-class">
+   <h3 class="Heading-Class-about" style="text-align: center">Meet the team</h3>
+   
+   <div class="TeamImageSlider">
+   
+   <div class="WithText">
+      <img src="../../images/Jostens-Images/team-images/jostens-profile-pic-sreesha.png" alt="ImageSlider"/>
+      <p class="NameTeam">Shreesha K Rao</p>
+      <p class="DesTeam">Project Manager</p>
+     </div>
+     
+     <div class="WithText">
+      <img src="../../images/Jostens-Images/team-images/jostens-profile-pic-chandan.png" alt="ImageSlider"/>
+      <p class="NameTeam">Chandan Purakit</p>
+      <p class="DesTeam">Dev Lead</p>
+     </div>
+     
+     <div class="WithText">
+      <img src="../../images/Jostens-Images/team-images/jostens-profile-pic-hirshi.png" alt="ImageSlider"/>
+      <p class="NameTeam">Shirvante Hrishikesh</p>
+      <p class="DesTeam">DPE</p>
+     </div>     
+     
+     <div class="WithText">
+      <img src="../../images/Jostens-Images/team-images/jostens-profile-pic-fabio.png" alt="ImageSlider"/>
+      <p class="NameTeam">Fabio Schiattarella</p>
+      <p class="DesTeam">Project Manager</p>
+     </div>
+     
+     <div class="WithText">
+      <img src="../../images/Jostens-Images/team-images/jostens-profile-pic-serge.png" alt="ImageSlider"/>
+      <p class="NameTeam">Serge Baduka</p>
+      <p class="DesTeam">Architect</p>
+     </div>
+     
+     <div class="WithText">
+      <img src="../../images/Jostens-Images/team-images/jostens-profile-pic-emily.png" alt="ImageSlider"/>
+      <p class="NameTeam">Emily Tanenbaum</p>
+      <p class="DesTeam">Business Analyst</p>
+     </div>
+     
+     <div class="WithText">
+      <img src="../../images/Jostens-Images/team-images/jostens-profile-pic-dheeraj.png" alt="ImageSlider"/>
+      <p class="NameTeam">Dheeraj Sunkara</p>
+      <p class="DesTeam">Test Lead</p>
+     </div>
+     
+   </div>
+  </div>	
+</div>
+<!-- Div Slick Team Slider -->
+
+
+<!-- Warning Message Container -->
+<div class="col-sm-12 Warning-Div-Container">
+ <div class="Container-Div-class">
+ <div class="Warning-image"><img src="images/caution-icon.png"/></div>
+ <div class="Warning-content">
+   The content provided here is proprietary to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. 
+   Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.
+ </div>
+ </div>
+</div>
+<!-- Warning Message Container -->
+
+<div id="footer"></div>
+
+<style>
+/*Slick Slider Override Css*/
+
+.slick-dots
+{
+ position:fixed;
+}
+.slick-list
+{
+ padding: 35px 50px !important;
+ height:340px
+}
+.slick-center
+{
+  width: 294px;
+  top: -31px;
+  position: relative;
+}
+.slick-center>img
+{
+  transform: scale(1.50);
+  transition: all 500ms ease;
+  padding: 40px;
+}
+.slick-slide img {
+  cursor: -webkit-grab;
+</style>
+<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+<script type="text/javascript" src="../slick/slick.min.js"></script>
+<script>
+  setTimeout(function(){
+	$(document).ready(function () {
+	
+	  //Script for Slick Slider//
+        $('.TeamImageSlider').slick({
+            dots: true,
+            centerPadding: '60px',
+            centerMode: true,
+            infinite: true,
+            slidesToShow: 3,
+            arrows: true,
+            autoplay: true,
+			speed:2500,
+            autoplaySpeed: 1000,
+            responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+          ]
+        });
+	  //Script for Slick Slider//
+	  
+    // Script for marque//
+      var speed = 5;
+      var items, scroller = $('#scroller');
+      var width = 0;
+      scroller.children().each(function(){
+        width += $(this).outerWidth(true);
+      });
+      scroller.css('width', width);
+      scroll();
+      function scroll(){
+        items = scroller.children();
+        var scrollWidth = items.eq(0).outerWidth();
+        scroller.animate({'left' : 0 - scrollWidth}, scrollWidth * 100 / speed, 'linear', changeFirst);
+      }
+      function changeFirst(){
+        scroller.append(items.eq(0).remove()).css('left', 0);
+        scroll();
+      }
+    // Script for marque//
+  
+       $('.loading').css('display','none');
+     });
+	},3500);
+    </script>

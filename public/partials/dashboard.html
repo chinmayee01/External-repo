@@ -1,0 +1,163 @@
+<div id="viewcontent">
+<!--  Container    -->
+<link href="partials/eCustomCss/DashboardCustom.css" rel="stylesheet" media="screen">
+
+<!--   Menu Wrapper    -->
+    <!--  Logo Wrapper    -->
+            <div class="LogoWrapper">
+            <!--  Left Title    -->
+            <div class="Title">
+				<div class="colorBar">
+		<div id="logo">
+        <div id="logo_text" class="ticker_left">                  
+          <div id="scrollerWrapper">
+			<ul id="scroller" >			
+	        <li ng-repeat="tic in tabtdata[0].Ticker"><span>{{tic}}</span></li>	
+			</ul>
+			</div>
+        </div>
+   
+      </div>
+      </div>
+            </div>
+        <!--   Left Title   -->
+            </div>
+        <!--   Logo Wrapper   -->
+        </div>
+<div class="Container">
+        <!--   Banner Images -->
+            <div class="BannerImageWrapper">
+			<!--  <img src="{{tabtdata[0].dashboardPageSchema.Banner}}" width="100%"/> -->
+			<img src="images/Jostens-Images/josten-dashboard-banner.jpg" width="100%"/>
+            </div>
+        <!--  Banner Images   -->
+    
+</div>
+<!--  container   -->
+
+
+<div class="col-sm-12 Container-Class graphs" ng-show="tabtdata[0].dashboardPageSchema.Quality_Metrics.Show_Flag">
+  <div class="Container-Div-class">
+   <h3 class="Heading-Class-about" style="text-align: center">{{tabtdata[0].dashboardPageSchema.Quality_Metrics.Tab_name}}</h3>
+    <div class="left-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-quality-mets-01B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Quality_Metrics.Image1}}" /></a></div>
+    <div class="right-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-quality-mets-02B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Quality_Metrics.Image2}}"/></a></div>
+    <div class="left-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-quality-mets-03B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Quality_Metrics.Image3}}"/></a></div>
+    <div class="right-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-quality-mets-04B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Quality_Metrics.Image4}}"/></a></div>
+  </div>
+</div>
+
+<div class="col-sm-12 Container-Class graphs" ng-show="tabtdata[0].dashboardPageSchema.Agile_Metrics.Show_Flag">
+  <div class="Container-Div-class">
+   <h3 class="Heading-Class-about" style="text-align: center">{{tabtdata[0].dashboardPageSchema.Agile_Metrics.Tab_name}}</h3>
+    <div class="left-div"><img src="{{tabtdata[0].dashboardPageSchema.Agile_Metrics.Image1}}"/></div>
+    <div class="right-div"><img style="width: 96%; padding: 0 0px 0 13px;" src="{{tabtdata[0].dashboardPageSchema.Agile_Metrics.Image2}}"/></div>
+    <div class="left-div"><img src="{{tabtdata[0].dashboardPageSchema.Agile_Metrics.Image3}}"/></div>
+    <div class="right-div"><img src="{{tabtdata[0].dashboardPageSchema.Agile_Metrics.Image4}}"/></div>
+  </div>
+</div>
+
+<div class="col-sm-12 Container-Class graphs" ng-show="tabtdata[0].dashboardPageSchema.Operations.Show_Flag">
+  <div class="Container-Div-class">
+   <h3 class="Heading-Class-about" style="text-align: center">{{tabtdata[0].dashboardPageSchema.Operations.Tab_name}}</h3>
+    <div class="left-div"><img style="padding:5px 0 0 0" src="{{tabtdata[0].dashboardPageSchema.Operations.Image1}}"/></div>
+    <div class="right-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-operations-mets-02B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Operations.Image2}}"/></a></div>
+    <div class="left-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-operations-mets-03B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Operations.Image3}}"/></a></div>
+    <div class="right-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-operations-mets-04B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Operations.Image4}}"/></a></div>
+  </div>
+</div>
+
+<div class="col-sm-12 Container-Class graphs" ng-show="tabtdata[0].dashboardPageSchemaService.Show_Flag">
+  <div class="Container-Div-class">
+   <h3 class="Heading-Class-about" style="text-align: center">{{tabtdata[0].dashboardPageSchema.Service.Tab_name}}</h3>
+    <div class="left-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-service-mets-01B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Service.Image1}}"/></a></div>
+    <div class="right-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-service-mets-02B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Service.Image2}}"/></a></div>
+    <div class="left-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-service-mets-03B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Service.Image3}}"/></a></div>
+    <div class="right-div"><a href="images/Jostens-Images/Dashboard-Popup-Images/cbs-service-mets-04B.png" class="image-popup-link"><img src="{{tabtdata[0].dashboardPageSchema.Service.Image4}}"/></a></div>
+  </div>
+</div>
+
+<div class="col-sm-12 Container-Class" ng-show="tabtdata[0].welcomePageSchema.Key_Dates_Watch[0].Show_Flag">
+  <div class="Container-Div-class" style="width: 956px;">
+  <h3 class="Heading-Class-h3">{{tabtdata[0].welcomePageSchema.Key_Dates_Watch[0].Tab_name}}</h3>
+  <div class="Table-container">
+    <table width="100%">
+			 <tr>
+			 <td class="TD-RIGHT">
+				<table class="table RightSideTable" style="min-height:296px; max-height:296px;">
+                    <thead>
+                        <tr class="RightSideSecondTableHeader">
+                            <th style="width:260px">Milestones</th>
+                            <th style="width:120px">Target date</th>
+                            <th style="width:120px">Status</th>
+                            <th style="max-width:200px">Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:left" ng-repeat="abc in tabtdata[0].welcomePageSchema.Key_Dates_Watch[0].Phases[0].Phase">
+
+                    
+                    <tr>
+                         <td class="phase-td" colspan="4">Phase &nbsp;{{$index+1}}</td>
+                        </tr>
+                         
+                           <tr ng-repeat="def in abc.Content_Data">
+                            <td class="">{{def.Milestone}}</td>
+                            <td style="white-space:normal">{{def.Target_Date | date:"EEEE dd-MM-yyyy"}}</td>
+                            <td class="{{def.Status}}"></td>
+                            <td class="">{{def.Comments}}</td>
+                           </tr>
+                        
+                      </tbody>
+                    </table>
+			  </td>
+			 </tr>
+			 </table>
+  </div>
+  </div>
+</div>
+
+<!-- Div Warning Message -->
+<div class="col-sm-12 Warning-Div-Container">
+ <div class="Container-Div-class">
+ <div class="Warning-image"><img src="images/caution-icon.png"/></div>
+ <div class="Warning-content">
+   The content provided here is proprietary to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. 
+   Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.
+ </div>
+ </div>
+</div>
+<!-- Div Warning Message -->
+
+<div id="footer"></div>
+
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="partials/js/jquery.magnific-popup.js"></script>
+<link rel="stylesheet" media="screen" href="partials/eCustomCss/magnific-popup.css" />
+<script>
+setTimeout(function(){
+ $(document).ready(function(){
+ $(".loading").css("display", "none");
+  // Script For marque//
+    var speed = 5;
+    var items, scroller = $('#scroller');
+    var width = 0;
+    scroller.children().each(function(){
+        width += $(this).outerWidth(true);
+    });
+    scroller.css('width', width);
+    scroll();
+    function scroll(){
+        items = scroller.children();
+        var scrollWidth = items.eq(0).outerWidth();
+        scroller.animate({'left' : 0 - scrollWidth}, scrollWidth * 100 / speed, 'linear', changeFirst);
+    }
+    function changeFirst(){
+        scroller.append(items.eq(0).remove()).css('left', 0);
+        scroll();
+    }
+  // Script For marque//
+  
+  $('.image-popup-link').magnificPopup({type:'image'});
+});
+},3500);
+</script>
+</div>

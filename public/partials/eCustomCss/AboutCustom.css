@@ -1,0 +1,57 @@
+@font-face {
+    font-family: HelveticaNeue-Light;
+    src: local(HelveticaNeue-Light), url('../Fonts/HelveticaNeue-Light.otf') format('opentype');
+}
+
+ body {
+    font-family: HelveticaNeue-Light, HelveticaNeue-Regular,' Helvetica','Helvetica Neue Regular', 'Helvetica Neue', HelvRegularIBM !important;
+	color:#333333;
+}
+h1, h2, h3, h4, h5, h6{padding: 0; margin: 0}
+ .Container-Class
+ {
+  border-bottom:1px solid #d5d5d5;
+ }
+ .Container-Div-class
+ {
+  clear:both;
+  margin:auto;
+  width:980px;
+  text-align: justify;
+ }
+ .Heading-Class-about
+ {margin:20px 0 20px 0}
+ 
+ .TeamImageSlider{margin-top:10px; margin-bottom: 60px !important;}
+ .TeamImageSlider>img{
+     width: 100%;
+     padding-left: 30px;
+ }
+ .NameTeam{
+     color: #40ADE5 !important; 
+	 margin:5px 0 0 0;
+	 font-size:15px;
+ }
+ .DesTeam{
+     color: #333333;
+	 margin:0 !important;
+	 font-size:12px;
+ }
+  .WithText{
+    text-align: justify;
+    text-align: center;
+   width: 260px;
+ }
+ .WithText>img {
+    display: block;
+    margin: 0 auto;
+}
+ 
+.Left-Div-timeline
+{
+	margin-bottom:20px;
+}
+ .methodology, .Container-Div-class, .Left-Div-timeline
+ {
+    height:auto;
+ }

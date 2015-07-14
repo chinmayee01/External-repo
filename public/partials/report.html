@@ -1,0 +1,146 @@
+<div id="viewcontent" ng-init="test1()">
+</script>
+<!--  Container    -->
+<link href="partials/eCustomCss/ReportCustom.css" rel="stylesheet" media="screen">
+
+<!--   Menu Wrapper    -->
+    <!--  Logo Wrapper    -->
+            <div class="LogoWrapper">
+            <!--  Left Title    -->
+            <div class="Title">
+				<div class="colorBar">
+		<div id="logo">
+        <div id="logo_text" class="ticker_left">                  
+          <div id="scrollerWrapper">
+			<ul id="scroller" >			
+		
+	        <li ng-repeat="tic in tabtdata[0].Ticker"><span>{{tic}}</span></li>
+	
+			</ul>
+			</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 <input type="text" name="search" class="search" placeholder="Search here"
+      onblur="if (this.value == '') {this.value = 'SEARCH';}" onfocus="if (this.value == 'SEARCH') {this.value = '';}" ng-model="que" /></div>
+          
+		
+        </div>
+                            
+         
+      </div>
+      
+      </div>
+            </div>
+        <!--   Left Title   -->
+            </div>
+        <!--   Logo Wrapper   -->
+        </div>
+        <div>
+        
+        </div>
+<div class="Container">
+        <!--   Banner Images -->
+            <div class="BannerImageWrapper">
+			<img src="{{tabtdata[0].reportPageSchema.Banner}}" width="100%"/>
+            </div>
+        <!--  Banner Images   -->
+    
+</div>
+<!--  container   -->
+</div>
+
+<div class="col-sm-12 Container-Class">
+  <div class="Container-Div-class" style="margin-top: 10px;">
+   <h3 class="Heading-Class-h3">Reports</h3>
+    <p class="report">
+    {{tabtdata[0].reportPageSchema.Page_Description}}
+    </p>
+  </div>
+</div>
+
+<div class="col-sm-12 Container-Class">
+  <div id="wrapper">
+    <div id="leftcolumn" ng-show="tabtdata[0].reportPageSchema.Tabs[0].Show_Flag">
+    <h4>{{tabtdata[0].reportPageSchema.Tabs[0].Tab_name}}</h4>
+
+<ul class="down_load" ng-repeat="repData1 in tabtdata[0].reportPageSchema.Tabs[0].Content | filter:que">
+<span ng-if="repData1.File_name != ''">
+  <li>{{repData1.date | date:"MM-dd-yyyy"}} {{repData1.File_name}} &nbsp;<a href="http://file-download.mybluemix.net/reports/{{tabtdata[0].reportPageSchema.Project_folder}}/{{repData1.File_name}}">Download</a></li>
+</span>
+</ul>  
+    </div>
+    <div id="rightcolumn" ng-show="tabtdata[0].reportPageSchema.Tabs[1].Show_Flag">
+    <h4>{{tabtdata[0].reportPageSchema.Tabs[1].Tab_name}}</h4>
+
+<ul class="down_load" ng-repeat="repData2 in tabtdata[0].reportPageSchema.Tabs[1].Content | filter:que">
+   <span ng-if="repData2.File_name != ''">
+   <li>{{repData2.date | date:"MM-dd-yyyy"}} {{repData2.File_name}} &nbsp;<a href="http://file-download.mybluemix.net/reports/{{tabtdata[0].reportPageSchema.Project_folder}}/{{repData2.File_name}}">Download</a></li>
+   </span>
+</ul>  
+    </div>
+</div>
+</div>
+
+<div class="col-sm-12 Container-Class">
+  <div id="wrapper">
+    <div id="leftcolumn" ng-show="tabtdata[0].reportPageSchema.Tabs[2].Show_Flag">
+    <h4>{{tabtdata[0].reportPageSchema.Tabs[2].Tab_name}}</h4>
+
+<ul class="down_load" ng-repeat="repData3 in tabtdata[0].reportPageSchema.Tabs[2].Content | filter:que">
+  <span ng-if="repData3.File_name != ''">
+   <li>{{repData3.date | date:"MM-dd-yyyy"}} {{repData3.File_name}} &nbsp;<a href="http://file-download.mybluemix.net/reports/{{tabtdata[0].reportPageSchema.Project_folder}}/{{repData3.File_name}}">Download</a></li>
+   </span>
+</ul>   
+    </div>
+    <div id="rightcolumn" ng-show="tabtdata[0].reportPageSchema.Tabs[3].Show_Flag">
+    <h4>{{tabtdata[0].reportPageSchema.Tabs[3].Tab_name}}</h4>
+
+<ul class="down_load" ng-repeat="repData4 in tabtdata[0].reportPageSchema.Tabs[3].Content | filter:que">
+   <span ng-if="repData4.File_name != ''">
+   <li>{{repData4.date | date:"MM-dd-yyyy"}} {{repData4.File_name}} &nbsp;<a href="http://file-download.mybluemix.net/reports/{{tabtdata[0].reportPageSchema.Project_folder}}/{{repData4.File_name}}">Download</a></li>
+   </span>
+</ul>
+    </div>
+</div>
+</div>
+
+<!-- Div Warning Message -->
+<div class="col-sm-12 Warning-Div-Container">
+ <div class="Container-Div-class">
+ <div class="Warning-image"><img src="images/caution-icon.png"/></div>
+ <div class="Warning-content">
+   The content provided here is proprietary to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. 
+   Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.
+ </div>
+ </div>
+</div>
+<!-- Div Warning Message -->
+
+<div id="footer"></div>
+
+<script>
+    setTimeout(function(){
+	$(document).ready(function () {
+    $(".loading").css("display", "none");
+         //marque
+    var speed = 5;
+    var items, scroller = $('#scroller');
+    var width = 0;
+    scroller.children().each(function(){
+        width += $(this).outerWidth(true);
+    });
+    scroller.css('width', width);
+    scroll();
+    function scroll(){
+        items = scroller.children();
+        var scrollWidth = items.eq(0).outerWidth();
+        scroller.animate({'left' : 0 - scrollWidth}, scrollWidth * 100 / speed, 'linear', changeFirst);
+    }
+    function changeFirst(){
+        scroller.append(items.eq(0).remove()).css('left', 0);
+        scroll();
+    }
+
+    });
+	},3500);
+    </script>
+</div>

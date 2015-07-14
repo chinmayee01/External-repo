@@ -1,0 +1,189 @@
+<div id="viewcontent">
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!--  Container    -->
+<link href="partials/eCustomCss/KnowledgeBaseCustom.css" rel="stylesheet" media="screen">
+
+<!--   Menu Wrapper    -->
+    <!--  Logo Wrapper    -->
+            <div class="LogoWrapper">
+            <!--  Left Title    -->
+            <div class="Title">
+				<div class="colorBar">
+		<div id="logo">
+        <div id="logo_text" class="ticker_left">                  
+          <div id="scrollerWrapper">
+			<ul id="scroller" >			
+	        <li ng-repeat="tic in tabtdata[0].Ticker"><span>{{tic}}</span></li>	
+			</ul>
+			</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" name="search" class="search" placeholder="Search here"
+      onblur="if (this.value == '') {this.value = 'SEARCH';}" onfocus="if (this.value == 'SEARCH') {this.value = '';}" ng-model="que" /></div>
+        </div>
+      
+      </div>
+      </div>
+            </div>
+        <!--   Left Title   -->
+            </div>
+        <!--   Logo Wrapper   -->
+        </div>
+<div class="Container">
+        <!--   Banner Images -->
+            <div class="BannerImageWrapper">
+			<img src="{{tabtdata[0].knowledgeBasePageSchema.Banner}}" width="100%"/>
+            </div>
+        <!--  Banner Images   -->
+    
+</div>
+</div>
+<div class="col-sm-12 Container-Class">
+  <div class="Container-Div-class" style="margin-bottom:40px">
+  <h3 class="Heading-Class-h3">Knowledge base</h3>
+  <p>
+ {{tabtdata[0].knowledgeBasePageSchema.Page_Description}}
+  <p>
+  </div>
+</div>
+
+<div class="col-sm-12 Container-Class">
+  <div class="Container-Div-class">
+   <div id="cssmenu">
+	<ul>
+	<span ng-repeat="knowTabH in tabtdata[0].knowledgeBasePageSchema.Tabs">
+	 <li><a class="{{linkarr[$index]}}" href="{{hrefs[$index]}}">{{knowTabH.Tab_name}}</a></li>
+    </span>
+	</ul>
+	</div>
+  </div>
+</div>
+
+<!-- Management Center Starts-->
+<span id="management" ng-repeat="knowTab in tabtdata[0].knowledgeBasePageSchema.Tabs">
+<div style="float:left" class="content-section" id="{{ 'content' + $index }}">
+<div class="col-sm-12 Container-Class" style="background: rgb(247, 247, 247);" ng-show="knowTab.Show_Flag===true">
+  <div class="Container-Div-class">
+   <div class="Container-Header-Left">
+    <h3>{{knowTab.Tab_name}}</h3>
+    <ul>{{knowTab.Tab_details[0]}}
+    <span ng-repeat="knowTabContent in knowTab.Tab_details.slice(1,knowTab.Tab_details.length) | filter:que track by $index">
+     <li>{{knowTabContent}}</li>
+
+     </span>
+    </ul>
+   </div>
+   <div class="Container-Header-Right">
+   <!-- pdfs changes -->
+    <button ng-click="guideDownload(knowTab.file_name,$index)">Download The Guide</button>
+   </div>
+  </div>
+</div>
+
+<div class="col-sm-12 Container-Class" >
+  <div class="Container-Div-class">
+   <h3>What is covered in this topic</h3>
+   <div class="Container-Content">
+    <ul >
+    <span ng-repeat="topKnowdata1 in knowTab.Topics_Covered | filter:que track by $index">
+     <li >{{topKnowdata1.Main_Content}}</li>
+    
+      <ul  ng-if = "!(topKnowdata1.Sub_level_1[0].Sub_level_1_Content == '') ">
+      <span ng-repeat="topsub1 in topKnowdata1.Sub_level_1">
+      {{topsub1.Sub_level_1_Content}}<br>
+       <ul ng-if="!(topsub1.Sub_level_2[0]=='')">
+       <li ng-repeat = "topsub2 in topsub1.Sub_level_2">{{topsub2}}</li>
+       </ul>
+      </span>
+      </ul>
+     </span>
+    </ul>
+   </div>
+
+  </div>
+</div>
+</div>
+</span>
+<script>
+ setTimeout(function(){
+  $(document).ready(function () {
+	
+	/Script for Internal Nav/	
+     $(".loading").css("display", "none");
+		$('#cssmenu li a').click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+         $('#cssmenu li a').removeClass('active-class');
+         $(this).addClass('active-class');
+       });
+	   
+	   $('.content-section').hide();
+	   $('#content0').show();
+	   $(".link-tab1").click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+		 $('.content-section').hide();
+		 $('#content0').show();
+       });
+	   $(".link-tab2").click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+		 $('.content-section').hide();
+		 $('#content1').show();
+       });
+	   $(".link-tab3").click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+		 $('.content-section').hide();
+		 $('#content2').show();
+       });
+	   $(".link-tab4").click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+		 $('.content-section').hide();
+		 $('#content3').show();
+       });
+	    $(".link-tab5").click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+		 $('.content-section').hide();
+		 $('#content4').show();
+       });
+       $(".link-tab6").click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+		 $('.content-section').hide();
+		 $('#content5').show();
+       });
+       $(".link-tab7").click(function(e) {
+         e.preventDefault(); //prevent the link from being followed
+		 $('.content-section').hide();
+		 $('#content6').show();
+       });
+    //Script for Internal Nav//
+    
+    //Script for Marquee//
+    var speed = 5;
+    var items, scroller = $('#scroller');
+    var width = 0;
+    scroller.children().each(function(){
+        width += $(this).outerWidth(true);
+    });
+    scroller.css('width', width);
+    scroll();
+    function scroll(){
+        items = scroller.children();
+        var scrollWidth = items.eq(0).outerWidth();
+        scroller.animate({'left' : 0 - scrollWidth}, scrollWidth * 100 / speed, 'linear', changeFirst);
+    }
+    function changeFirst(){
+        scroller.append(items.eq(0).remove()).css('left', 0);
+        scroll();
+    }
+    //Script for Marquee//
+   });
+  },3500);
+</script>
+</div>
+<div class="col-sm-12 Warning-Div-Container">
+ <div class="Container-Div-class">
+ <div class="Warning-image"><img src="images/caution-icon.png"/></div>
+ <div class="Warning-content">
+   The content provided here is proprietary to IBM and is intended for use between IBM Geo Client and Jostens and at no point of time should the content represented here be shared with others or used for public viewing. 
+   Use of IBM's systems is restricted to management approved purposes and subject to all applicable IBM policies and guidelines.
+ </div>
+ </div>
+</div>
+<div id="footer"></div>

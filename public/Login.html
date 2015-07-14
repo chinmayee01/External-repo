@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en" id="ng-app" ng-app="phonecatApp">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+        <link href="BootStrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="BootStrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+        <link href="partials/eCustomCss/LoginCustom.css" rel="stylesheet" media="screen">
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="BootStrap/js/bootstrap.min.js"></script>
+        <title></title>
+		<script src="bower_components/angular/angular.js"></script>
+        <script src="js/controllers/Productioncontrollers.js"></script>
+		 
+    </head>
+   
+    <body >
+	<!-- container -->
+     <div class="container">
+      <div class="content-Container">
+	   <h1>Welcome</h1>
+	   <p>Please Sign-in using the user credentials provided  in the email sent to you.  If you face any issues please contact your IBM Administrator mentioned in the mail.</p>
+	  </div>
+      <!-- <form name="myForm" class="form-signin" method="get"  onsubmit="valid()" ng-controller="mainCtrl" ng-submit = "sub()"> -->
+      <form name="myForm" class="form-signin" method="POST"  action = '/'>
+        <h5 class="form-signin-heading">
+        <img class="TeamSlidingImage" src="images/cbs-login-logol.png" alt="ImageSlider"/>
+        </h5>
+        <input type="text" name="cbsuser" class="input-block-level" placeholder="username" ng-model="title" >
+        <input type="password" name="cbspwd" class="input-block-level" placeholder="password" >
+        <label class="checkbox LabelColor" style="height:auto;">
+          <input type="checkbox" value="remember-me"> Remember me
+		  <strong class="LabelCutomStyle LabelColor"> Forgot Password? </strong>
+        </label>
+        <button type="submit" class="submit-button">Login</button>
+      </form>
+
+    </div>
+        
+    </body>
+</html>
