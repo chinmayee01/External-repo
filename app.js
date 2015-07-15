@@ -7,9 +7,11 @@
 // This application uses express as it's web server
 // for more info, see: http://expressjs.com
 var express = require('express');
-
+var port = process.env.PORT || 3000;
 // create a new express server
 var app = express();
+
+var hostName;
 
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -22,6 +24,7 @@ var cfenv = require('cfenv');
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var passport = require('passport');
 
 var LoginModel = require('./models/LoginSchema');
 
@@ -38,7 +41,8 @@ app.use(function(req, res, next) {
 app.use(session({ secret: 'keyboard cat',saveUninitialized: true,
                  resave: true }));
 app.use(cookieParser());
-
+app.use(passport.initialize());
+app.use(passport.session()); 
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -47,6 +51,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
+
+passport.serializeUser(function(user, done) {
+   done(null, user);
+}); 
+
+passport.deserializeUser(function(obj, done) {
+   done(null, obj);
+});
 
 //MongoDB
 var mongoUrl;
@@ -75,27 +87,27 @@ app.use('/msg',require('./routes/MessageBoardApi'));
 app.use('/loginApi',require('./routes/LoginApi'));
 app.use('/upload',require('./routes/uploadApi'));
 
+var sess;
+
 app.get('/login',function (req, res) {
   res.sendfile('./public/Login.html');
 
 }); 
 
-var sess;
-
 app.post('/',function (req, res) {
   var userid = req.body.cbsuser;
   var password = req.body.cbspwd;
 
-sess = req.session;
-
-console.log(userid);
+  sess = req.session;
 
   LoginModel.find({$and : [{'UserID': userid},{'Password' : password}]}, function(err, docs){
     if(err) return next(err);
     if(docs != ""){  
       sess.email = userid;
-       
+
+      sess.userName = docs[0].UserName;
       res.redirect('/');
+
       }else{
       res.send("User Not Found");
     }
@@ -103,14 +115,18 @@ console.log(userid);
   });
 });
 
+app.get('/getUser',function(req,res){
+ sess = req.session;
+ return res.json({'user':sess.userName});
+});
+
 app.get('/',function (req, res) {
  sess=req.session;
-
   if(sess.email){
-   res.sendfile('./public/index.html');
+  
+    res.sendfile('./public/index.html');
    }
    else{
-    
      res.redirect('/login');
    }
 
@@ -123,6 +139,8 @@ app.get('/',function (req, res) {
             console.log(err);
           }
         else{
+
+          // res.clearCookie('login_token');
          res.sendfile('./public/logout.html');   
 
          }
@@ -134,14 +152,15 @@ app.get('/',function (req, res) {
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 
+
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
-
 // start server on the specified port and binding host
 app.listen(appEnv.port, appEnv.bind, function() {
-
   // print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
 
+app.listen(port);
+console.log("App listening on port " + port);
 

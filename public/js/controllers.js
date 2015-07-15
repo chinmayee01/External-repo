@@ -62,31 +62,31 @@ phonecatControllers.controller('abtCtrl', ['$scope', '$routeParams','$http','$fi
 
      //comment this section while uploading the code to bluemix
 	    
+
+	    $scope.call2 = function()
+	    {
 	    $scope.company = "Jostens";
-		$http.get("http://localhost:6001/api/getExternalProjectByName/"+$scope.company).success(function(data) {
+		$http.get("http://9.182.97.204:3000/api/getExternalProjectByName/"+$scope.company).success(function(data) {
 		 	console.log("Checked in");
 		 
 		 	
 			$scope.tabtdata= data;
 			$scope.knowbase = data;
 			$scope.mycalarr = $scope.tabtdata[0].welcomePageSchema.Upcoming_Events;
-			$scope.userName = "Fabio Schiattarella";
+			//$scope.userName = "Fabio Schiattarella";
 			sharedProperties.setProperty($scope.userName);
 		
 		    $scope.callmsg($scope.company);
 		    $scope.initcalendar();
 		   
 			});
-		
-	
-		
-	
+		};	
 	//rest call for getting messages
 		
 		$scope.callmsg = function(comp)
 		{
 	
-		$http.get("https://localhost:60001/msg/getMessageBoardPosts").success(function(data) {
+		$http.get("https://9.182.97.204:3000/msg/getMessageBoardPosts").success(function(data) {
 		 	
 			console.log("Checked in messages");
 		 	data.reverse();
@@ -168,7 +168,7 @@ phonecatControllers.controller('abtCtrl', ['$scope', '$routeParams','$http','$fi
 
 			var request = $http({
 				method: "POST",
-				url : 'https://ibm-cbs-externalsite.mybluemix.net/msg/postMessageBoardPosts',
+				url : 'https://9.182.97.204:3000/msg/postMessageBoardPosts',
 				data: $.param($scope.tableData),
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
@@ -187,20 +187,21 @@ phonecatControllers.controller('abtCtrl', ['$scope', '$routeParams','$http','$fi
 		
 		//This is the function for sso 
 		
- //    $http.get("https://ibm-cbs-externalsite.mybluemix.net/getUser").success(function(data) {
- //    console.log("started");
- // 	$scope.abtdata= data;
+   $http.get("http://9.182.97.204:3000/getUser").success(function(data) {
+     console.log("started");
+  	$scope.abtdata= data;
  	
- // 	console.log("this is"+$scope.abtdata.User);
- // 	$scope.commondata = $scope.abtdata;
- // 	console.log("first call completed");
- // 	$scope.call2($scope.commondata.Company);
-	// $scope.userName = $scope.abtdata.User.substring(0, $scope.abtdata.User.indexOf('_'));
- // 	sharedProperties.setProperty($scope.userName);
- // 	$scope.callmsg($scope.commondata.Company);
+  	console.log("this is"+$scope.abtdata.User);
+  	$scope.commondata = $scope.abtdata;
+  	console.log("first call completed");
+  	$scope.call2();
+	 $scope.userName = $scope.abtdata.user
+	 console.log("and user is"+$scope.abtdata.user);
+ 	sharedProperties.setProperty($scope.userName);
+  	$scope.callmsg($scope.commondata.Company);
 
  	
-	// });
+	 });
 
  
    // call this function only when you have called sso
@@ -300,18 +301,15 @@ phonecatControllers.controller('messageCtrl', ['$scope', '$routeParams','$http',
 	
 	//comment this section while running locally
 	
-	 $http.get("https://ibm-cbs-externalsite.mybluemix.net/getUser").success(function(data) {
+	 $http.get("https://9.182.97.204:3000/getUser").success(function(data) {
     console.log("started");
- 	$scope.abtdata= data;
- 	console.log("first call completed");
-	$scope.userName = $scope.abtdata.User.substring(0, $scope.abtdata.User.indexOf('_'));
-	console.log("fffff"+$scope.userName);
-    sharedProperties.setProperty($scope.userName);
+ 	$scope.userName= data;
+ 	sharedProperties.setProperty($scope.userName);
  	
 	});
 	
      //get all the posts in the reply section
-	 $http.get("https://ibm-cbs-externalsite.mybluemix.net/msg/getMessageBoardPosts").success(function(data) {
+	 $http.get("http://9.182.97.204:3000/msg/getMessageBoardPosts").success(function(data) {
 	 	data.reverse();
 		$scope.repliesMessage = data;
 		//comment the userName line below when you are running on bluemix
@@ -331,7 +329,7 @@ phonecatControllers.controller('messageCtrl', ['$scope', '$routeParams','$http',
 	
 		 console.log("yaaaaaaaaaaaaaaaa"+$scope.reqUser)
 		 
-		 $http.get("https://localhost:6001/msg/getMessageBoardPosts").success(function(data) {
+		 $http.get("http://9.182.97.204:3000/msg/getMessageBoardPosts").success(function(data) {
 			 	$scope.replyMessage = data;
 			 	  $scope.myrep = $scope.repliesMessage[$scope.messageIndex];
 			 	  $scope.start($scope.myrep,$scope.reqUser);
@@ -373,7 +371,7 @@ phonecatControllers.controller('messageCtrl', ['$scope', '$routeParams','$http',
 
 			var request = $http({
 				method: "PUT",
-				url : 'https://ibm-cbs-externalsite.mybluemix.net/msg/updateMessageBoardPosts/'+obj._id,
+				url : 'https://9.182.97.204:3000/msg/updateMessageBoardPosts/'+obj._id,
 				data: $.param($scope.tableData),
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
